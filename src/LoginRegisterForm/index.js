@@ -9,6 +9,7 @@ class LoginRegisterForm extends Component {
 		this.state = {
 			first_name: '',
 			last_name: '',
+			picture: '',
 			email: '',
 			password: ''
 		}
@@ -23,7 +24,7 @@ class LoginRegisterForm extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.register()
+		this.props.register(this.state)
 	}
 
 
@@ -50,6 +51,15 @@ class LoginRegisterForm extends Component {
 						value={this.state.last_name}
 						onChange={this.handleChange}
 						placeholder="Last name"
+					/>
+
+					<Form.Input
+						label="Picture"
+						type="text"
+						name="picture"
+						value={this.state.picture}
+						onChange={this.handleChange}
+						placeholder="Picture"
 					/>
 
 					<Form.Input

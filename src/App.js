@@ -16,9 +16,30 @@ class App extends Component {
 
 
   // register method
-  register = (registerInfo) => {
+  register = async (registerInfo) => {
+    console.log(registerInfo);
 
-    console.log("this is the register method being called");
+    // define our url
+    const url = process.env.REACT_APP_API_URL + '/api/v1/users/register'
+    try {
+      // fetch api
+      const registerResponse = await fetch(url, {
+        credentials: 'include',
+        method: 'POST',
+        body: JSON.stringify(registerInfo),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      // convert to json
+      const registerJson = await registerResponse.json()
+      console.log(registerResponse);
+
+    } catch(err) {
+      console.error(err);
+    }
+
   }
 
 
