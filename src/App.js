@@ -29,7 +29,9 @@ class App extends Component {
     <div className="App">
       <h1>Social Community</h1>
 
-      <LoginRegisterForm />
+      <LoginRegisterForm 
+        register={this.register}
+      />
     </div>
   )
   }

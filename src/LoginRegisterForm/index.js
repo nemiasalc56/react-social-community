@@ -3,8 +3,8 @@ import { Form } from 'semantic-ui-react'
 
 
 class LoginRegisterForm extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 
 		this.state = {
 			first_name: '',
@@ -21,6 +21,11 @@ class LoginRegisterForm extends Component {
 		})
 	}
 
+	handleSubmit = (e) => {
+		e.preventDefault()
+		this.props.register()
+	}
+
 
 
 	render() {
@@ -28,7 +33,7 @@ class LoginRegisterForm extends Component {
 			<div>
 				<h3>LoginRegisterForm</h3>
 
-				<Form>
+				<Form onSubmit={this.handleSubmit}>
 					<Form.Input 
 						label="First name"
 						type="text"
@@ -64,6 +69,8 @@ class LoginRegisterForm extends Component {
 						onChange={this.handleChange}
 						placeholder="Password"
 					/>
+
+					<button type="submit">Sing Up</button>
 				</Form>
 
 			</div>
