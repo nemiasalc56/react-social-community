@@ -25,7 +25,13 @@ class LoginRegisterForm extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.register(this.state)
+		
+		if(this.state.action === "register") {
+			this.props.register(this.state)
+		} else if(this.state.action === "login") {
+			this.props.login()
+		}
+
 	}
 
 	// switch form to register or login

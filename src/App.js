@@ -43,6 +43,13 @@ class App extends Component {
   }
 
 
+  // login method
+  login = async (loginInfo) => {
+    console.log("login method is being called");
+
+  }
+
+
 
   render() {
 
@@ -52,6 +59,7 @@ class App extends Component {
 
       <LoginRegisterForm 
         register={this.register}
+        login={this.login}
       />
     </div>
   )
