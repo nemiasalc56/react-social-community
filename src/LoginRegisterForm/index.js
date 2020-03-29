@@ -29,7 +29,7 @@ class LoginRegisterForm extends Component {
 		if(this.state.action === "register") {
 			this.props.register(this.state)
 		} else if(this.state.action === "login") {
-			this.props.login()
+			this.props.login(this.state)
 		}
 
 	}
@@ -41,6 +41,19 @@ class LoginRegisterForm extends Component {
 		} else {
 			this.setState({action: "login"})
 		}
+
+		this.clearForm()
+	}
+
+	// clear our form when user switch to login or register
+	clearForm = () => {
+		this.setState({
+			first_name: '',
+			last_name: '',
+			picture: '',
+			email: '',
+			password: ''
+		})
 	}
 
 
