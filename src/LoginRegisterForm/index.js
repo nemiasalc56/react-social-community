@@ -11,7 +11,8 @@ class LoginRegisterForm extends Component {
 			last_name: '',
 			picture: '',
 			email: '',
-			password: ''
+			password: '',
+			action: 'login'
 		}
 	}
 
@@ -27,6 +28,15 @@ class LoginRegisterForm extends Component {
 		this.props.register(this.state)
 	}
 
+	// switch form to register or login
+	switchForm = () => {
+		if (this.state.action === "login") {
+			this.setState({action: "register"})
+		} else {
+			this.setState({action: "login"})
+		}
+	}
+
 
 
 	render() {
@@ -35,32 +45,43 @@ class LoginRegisterForm extends Component {
 				<h3>LoginRegisterForm</h3>
 
 				<Form onSubmit={this.handleSubmit}>
-					<Form.Input 
-						label="First name"
-						type="text"
-						name="first_name"
-						value={this.state.first_name}
-						onChange={this.handleChange}
-						placeholder="First name"
-					/>
 
-					<Form.Input
-						label="Last name"
-						type="text"
-						name="last_name"
-						value={this.state.last_name}
-						onChange={this.handleChange}
-						placeholder="Last name"
-					/>
+					{this.state.action === "login"
+						? null
 
-					<Form.Input
-						label="Picture"
-						type="text"
-						name="picture"
-						value={this.state.picture}
-						onChange={this.handleChange}
-						placeholder="Picture"
-					/>
+						:
+						<div>
+							<Form.Input 
+							label="First name"
+							type="text"
+							name="first_name"
+							value={this.state.first_name}
+							onChange={this.handleChange}
+							placeholder="First name"
+							/>
+
+							<Form.Input
+								label="Last name"
+								type="text"
+								name="last_name"
+								value={this.state.last_name}
+								onChange={this.handleChange}
+								placeholder="Last name"
+							/>
+
+							<Form.Input
+								label="Picture"
+								type="text"
+								name="picture"
+								value={this.state.picture}
+								onChange={this.handleChange}
+								placeholder="Picture"
+							/>
+							
+						</div>
+					}
+
+					
 
 					<Form.Input
 						label="Email"
@@ -81,6 +102,13 @@ class LoginRegisterForm extends Component {
 					/>
 
 					<button type="submit">Sing Up</button>
+					
+					<p id="login-link" onClick={this.switchForm}>
+						{this.state.action === "login"
+							? "Create an account"
+							: "Already have an account?"
+						}
+					</p>
 				</Form>
 
 			</div>
