@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import LoginRegisterForm from './LoginRegisterForm'
+import CommunityContainer from './CommunityContainer'
 
 
 
@@ -84,10 +85,15 @@ class App extends Component {
     <div className="App">
       <h1>Social Community</h1>
 
-      <LoginRegisterForm 
-        register={this.register}
-        login={this.login}
-      />
+      {this.state.loggedIn
+        ? <CommunityContainer />
+        : 
+        <LoginRegisterForm 
+          register={this.register}
+          login={this.login}
+        />
+
+      }
     </div>
   )
   }
