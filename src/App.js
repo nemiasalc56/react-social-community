@@ -35,6 +35,9 @@ class App extends Component {
       // convert to json
       const registerJson = await registerResponse.json()
       console.log(registerResponse);
+      if(registerJson.status === 200) {
+        this.setState({loggedIn: true})
+      }
 
     } catch(err) {
       console.error(err);
@@ -62,6 +65,10 @@ class App extends Component {
 
       const loginJson = await loginResponse.json()
       console.log(loginJson);
+
+      if(loginJson.status === 200) {
+        this.setState({loggedIn: true})
+      }
 
     } catch(err) {
       console.error(err);
