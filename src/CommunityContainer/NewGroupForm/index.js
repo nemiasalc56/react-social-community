@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 
 
 
@@ -12,16 +12,27 @@ class NewGroupForm extends Component {
 		}
 	} 
 
+	// handle change
+	handleChange = (e) => {
+		this.setState({name: e.target.value})
+	}
+
+
+
 	render() {
 
 		return(
 			<div>
 				<Form>
 
-					<Form.Input 
+					<Form.Input
 						label="Group Name:"
-						type="text" 
+						type="text"
+						value={this.state.name} 
+						onChange={this.handleChange}
 						name="name" />
+
+					<Button>Create Group</Button>
 				</Form>
 			</div>
 			)

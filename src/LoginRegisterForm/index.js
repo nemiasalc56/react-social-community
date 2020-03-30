@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 
 
 
@@ -127,7 +127,7 @@ class LoginRegisterForm extends Component {
 						placeholder="Password"
 					/>
 
-					<button type="submit">Sing Up</button>
+					<Button type="submit">Sing Up</Button>
 					
 					<p id="login-link" onClick={this.switchForm}>
 						{this.state.action === "login"
