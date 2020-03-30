@@ -1,0 +1,19 @@
+.groupContainer {
+	border: 5px solid black;
+	border-radius: 5px;
+	height: 70vh;
+	width: 15vw;
+	position: absolute;
+	bottom: 10px;
+	margin-left: 10px;
+}
+
+.chatContainer {
+	border: 5px solid black;
+	border-radius: 5px;
+	height: 70vh;
+	width: 25vw;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
 
 
+
 class LoginRegisterForm extends Component {
 	constructor(props) {
 		super(props)
@@ -61,7 +62,13 @@ class LoginRegisterForm extends Component {
 	render() {
 		return(
 			<div>
-				<h3>LoginRegisterForm</h3>
+				<h1>Social Community</h1>
+
+				<h3>
+					{this.state.action ==="login"?
+					"Login" : "Register"
+					}
+				</h3>
 
 				<Form onSubmit={this.handleSubmit}>
 
