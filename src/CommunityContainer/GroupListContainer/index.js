@@ -19,9 +19,9 @@ function GroupListContainer(props) {
 				<div className="setting">
 					<Dropdown text='Settings'>
 					    <Dropdown.Menu>
-					      <Dropdown.Item text='Update' onClick={()=> console.log(group.id)}/>
-					      <Dropdown.Item text='Delete' />
+					      <Dropdown.Item text='Update' onClick={()=> props.groupToUpdate(group.id)}/>
 					      <Dropdown.Item text='Add member' />
+					      <Dropdown.Item text='Delete' />
 					    </Dropdown.Menu>
 					  </Dropdown>
 				</div>

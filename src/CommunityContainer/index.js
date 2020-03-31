@@ -90,6 +90,15 @@ class Community extends Component {
 		}
 	}
 
+	// get the group to update
+	groupToUpdate = (id) => {
+		console.log("groupToUpdate: ", id);
+
+		this.setState({
+			updateGroupId: id
+		})
+	}
+
 
 	render() {
 
@@ -109,7 +118,9 @@ class Community extends Component {
 				<div>
 					<div className="groupContainer">
 						<div className="group-list">
-							<GroupListContainer groups={this.state.groups}/>
+							<GroupListContainer 
+								groupToUpdate={this.groupToUpdate}
+								groups={this.state.groups}/>
 							
 						</div>
 
