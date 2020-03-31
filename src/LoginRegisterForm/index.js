@@ -77,7 +77,9 @@ class LoginRegisterForm extends Component {
 						</div>
 
 						<Form onSubmit={this.handleSubmit}>
-
+							<Form.Field>
+								
+							
 							{this.state.action === "login"
 								? null
 
@@ -133,11 +135,11 @@ class LoginRegisterForm extends Component {
 								placeholder="Password"
 							/>
 
-							<Button 
-								color="green"
-								type="submit">
+							</Form.Field>
+
+							<button color="green" type="submit">
 								{this.state.action === "login"?"Sign In" : "Sign Up"}
-							</Button>
+							</button>
 							
 							<p id="login-link" onClick={this.switchForm}>
 								{this.state.action === "login"

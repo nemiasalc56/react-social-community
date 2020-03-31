@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import LoginRegisterForm from './LoginRegisterForm'
 import CommunityContainer from './CommunityContainer'
-import { BrowserRouter as Router,
-        Switch,
-        Route,
-        Link } from 'react-router-dom'
+
 
 
 
