@@ -12,7 +12,10 @@ function GroupListContainer(props) {
 		console.log(group.name);
 
 		return(
-			<Segment style={{margin: "5px"}} key={group.id}>
+			<Segment style={{
+				margin: "5px",
+				width: "135px"
+				}} key={group.id}>
 				<div className="setting">
 					<Dropdown text='Settings'>
 					    <Dropdown.Menu>

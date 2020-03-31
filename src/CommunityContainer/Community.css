@@ -27,7 +27,16 @@
 }
 
 .group-list {
-	overflow: scroll;
+	overflow: auto;
 	height: 50vh;
-	width: 15vw;
+	width: 20vw;
 }
+
+.group-list::-webkit-scrollbar-thumb {
+	background: transparent;
+}
+
+.group-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
