@@ -33,6 +33,11 @@ class GroupUpdateForm extends Component {
 		})
 	}
 
+	// submit the changes
+	handleSubmit = (e) => {
+		e.preventDefault()
+		console.log("User is trying to update the group");
+	}
 
 
 	render() {
@@ -42,7 +47,7 @@ class GroupUpdateForm extends Component {
 				<Modal size="mini" open={this.state.open} onClose={this.close}>
 					<h3>GroupUpdateForm</h3>
 					
-					<Form>
+					<Form onSubmit={this.handleSubmit}>
 						<Form.Input 
 							label="Name"
 							placeholder="Name"
