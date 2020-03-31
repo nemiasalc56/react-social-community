@@ -4,8 +4,8 @@ import { Form, Button } from 'semantic-ui-react'
 
 
 class NewGroupForm extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 
 		this.state = {
 			name: ''
@@ -17,13 +17,18 @@ class NewGroupForm extends Component {
 		this.setState({name: e.target.value})
 	}
 
+	// handle the submits
+	handleSubmit = (e) => {
+		e.preventDefault()
+		this.props.newGroup(this.state)
+	}
 
 
 	render() {
 
 		return(
 			<div>
-				<Form>
+				<Form onSubmit={this.handleSubmit}>
 
 					<Form.Input
 						label="Group Name:"

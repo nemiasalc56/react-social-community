@@ -10,6 +10,48 @@ import './Community.css'
 
 
 class Community extends Component {
+	constructor() {
+		super()
+
+		this.state = {
+			groups: []
+		}
+	}
+
+	// create group method
+	newGroup = async (groupInfo) => {
+		console.log(groupInfo);
+		// define our url
+		const url = process.env.REACT_APP_API_URL + '/api/v1/groups/'
+		try {
+			// fetch call
+			const groupResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'POST',
+				body: JSON.stringify(groupInfo),
+				headers: {
+          			'Content-Type': 'application/json'
+        		}
+			})
+
+			const groupJson = await groupResponse.json()
+			console.log(groupJson);
+
+			if(groupJson.status === 200) {
+				const groups = this.state.groups
+
+				// push our new groups in the array of groups
+				groups.push(groupJson.data)
+				this.setState({
+					groups: groups
+				})
+
+			}
+
+		} catch(err) {
+			console.error(err);
+		}
+	}
 
 
 	render() {
@@ -33,7 +75,7 @@ class Community extends Component {
 
 
 					<Route path="/create-group">
-						<NewGroupForm />
+						<NewGroupForm newGroup={this.newGroup}/>
 					</Route>
 
 				</Router>
