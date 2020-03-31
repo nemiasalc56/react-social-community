@@ -43,8 +43,9 @@ class Community extends Component {
 			const groupsJson = await groupsResponse.json()
 			console.log(groupsJson);
 
-
-
+			if(groupsJson.status === 200) {
+				this.setState({groups: groupsJson.data})
+			}
 
 
 		} catch(err) {
@@ -113,13 +114,14 @@ class Community extends Component {
 
 					<Route path="/create-group">
 						<NewGroupForm newGroup={this.newGroup}/>
+						
 					</Route>
 
 				</Router>
 
 				<div>
 					<div className="groupContainer">
-						<GroupListContainer />
+						<GroupListContainer groups={this.state.groups}/>
 					</div>
 
 					<div className="videoContainer">
