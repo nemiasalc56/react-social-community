@@ -24,8 +24,31 @@ class Community extends Component {
 
 
 	// this method will get all the group
-	getGroups = () => {
+	getGroups = async () => {
 		console.log("getGroups");
+		// define the url to fetch
+		const url = process.env.REACT_APP_API_URL + '/api/v1/groups/'
+
+		try {
+			// fetch call
+			const groupsResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			const groupsJson = await groupsResponse.json()
+			console.log(groupsJson);
+
+
+
+
+
+		} catch(err) {
+			console.error(err);
+		}
 	}
 
 
