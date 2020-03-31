@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Form, Button } from 'semantic-ui-react'
+import './LoginRegister.css'
+import { Form, Button, Segment } from 'semantic-ui-react'
 
 
 
@@ -64,78 +65,90 @@ class LoginRegisterForm extends Component {
 			<div>
 				<h1>Social Community</h1>
 
-				<h3>
-					{this.state.action ==="login"?
-					"Login" : "Register"
-					}
-				</h3>
-
-				<Form onSubmit={this.handleSubmit}>
-
-					{this.state.action === "login"
-						? null
-
-						:
-						<div>
-							<Form.Input 
-							label="First name"
-							type="text"
-							name="first_name"
-							value={this.state.first_name}
-							onChange={this.handleChange}
-							placeholder="First name"
-							/>
-
-							<Form.Input
-								label="Last name"
-								type="text"
-								name="last_name"
-								value={this.state.last_name}
-								onChange={this.handleChange}
-								placeholder="Last name"
-							/>
-
-							<Form.Input
-								label="Picture"
-								type="text"
-								name="picture"
-								value={this.state.picture}
-								onChange={this.handleChange}
-								placeholder="Picture"
-							/>
+				<div className="login-register-form">
+					<Segment>
+						<div className="login-register-title">
+							<h3>
+								{this.state.action ==="login"?
+								"Login" : "Register"
+								}
+							</h3>
 							
 						</div>
-					}
 
-					
+						<Form onSubmit={this.handleSubmit}>
 
-					<Form.Input
-						label="Email"
-						type="text"
-						name="email"
-						value={this.state.email}
-						onChange={this.handleChange}
-						placeholder="Email"
-					/>
+							{this.state.action === "login"
+								? null
 
-					<Form.Input
-						label="Password"
-						type="password"
-						name="password"
-						value={this.state.password}
-						onChange={this.handleChange}
-						placeholder="Password"
-					/>
+								:
+								<div>
+									<Form.Input 
+									label="First name"
+									type="text"
+									name="first_name"
+									value={this.state.first_name}
+									onChange={this.handleChange}
+									placeholder="First name"
+									/>
 
-					<Button type="submit">Sing Up</Button>
-					
-					<p id="login-link" onClick={this.switchForm}>
-						{this.state.action === "login"
-							? "Create an account"
-							: "Already have an account?"
-						}
-					</p>
-				</Form>
+									<Form.Input
+										label="Last name"
+										type="text"
+										name="last_name"
+										value={this.state.last_name}
+										onChange={this.handleChange}
+										placeholder="Last name"
+									/>
+
+									<Form.Input
+										label="Picture"
+										type="text"
+										name="picture"
+										value={this.state.picture}
+										onChange={this.handleChange}
+										placeholder="Picture"
+									/>
+									
+								</div>
+							}
+
+							
+
+							<Form.Input
+								label="Email"
+								type="text"
+								name="email"
+								value={this.state.email}
+								onChange={this.handleChange}
+								placeholder="Email"
+							/>
+
+							<Form.Input
+								label="Password"
+								type="password"
+								name="password"
+								value={this.state.password}
+								onChange={this.handleChange}
+								placeholder="Password"
+							/>
+
+							<Button 
+								color="green"
+								type="submit">
+								{this.state.action === "login"?"Sign In" : "Sign Up"}
+							</Button>
+							
+							<p id="login-link" onClick={this.switchForm}>
+								{this.state.action === "login"
+									? "Create an account"
+									: "Already have an account?"
+								}
+							</p>
+						</Form>
+					</Segment>
+
+				</div>
 
 			</div>
 			)

@@ -1,8 +1,4 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router,
-        Switch,
-        Route,
-        Link } from 'react-router-dom'
 import './Community.css'
 import NewGroupForm from './NewGroupForm'
 import GroupListContainer from './GroupListContainer'
@@ -96,32 +92,27 @@ class Community extends Component {
 
 		return(
 			<div>
-				<Router>
-					<header>
-						<h1>Social Community</h1>
+				<header>
+					<h1>Social Community</h1>
 
-						<Link className="links" to="/create-group">
-							Create Group
-						</Link>
-
-						<Link className="links" to="/">
-							Home
-						</Link>
-					</header>
-
-					<h2>Community Container</h2>
-
-
-					<Route path="/create-group">
-						<NewGroupForm newGroup={this.newGroup}/>
+					
+					<nav>
+						<p className="links">Home</p>
 						
-					</Route>
+					</nav>
+				</header>
 
-				</Router>
 
 				<div>
 					<div className="groupContainer">
-						<GroupListContainer groups={this.state.groups}/>
+						<div className="group-list">
+							<GroupListContainer groups={this.state.groups}/>
+							
+						</div>
+
+						<div className="add-group-contianer">
+							<NewGroupForm newGroup={this.newGroup}/>
+						</div>
 					</div>
 
 					<div className="videoContainer">

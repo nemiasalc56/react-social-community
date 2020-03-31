@@ -21,3 +21,13 @@
 	bottom: 10px;
 	right: 10px;
 }
+
+.add-group-contianer {
+
+}
+
+.group-list {
+	overflow: scroll;
+	height: 50vh;
+	width: 15vw;
+}

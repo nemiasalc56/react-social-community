@@ -21,6 +21,12 @@ class NewGroupForm extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		this.props.newGroup(this.state)
+		this.clearForm()
+	}
+
+	// clear the form after creating a group
+	clearForm = () => {
+		this.setState({name: ''})
 	}
 
 
@@ -31,13 +37,13 @@ class NewGroupForm extends Component {
 				<Form onSubmit={this.handleSubmit}>
 
 					<Form.Input
-						label="Group Name:"
+						placeholder="Group Name"
 						type="text"
-						value={this.state.name} 
+						value={this.state.name}
 						onChange={this.handleChange}
 						name="name" />
 
-					<Button>Create Group</Button>
+					<Button>Add Group</Button>
 				</Form>
 			</div>
 			)

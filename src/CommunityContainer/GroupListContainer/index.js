@@ -1,4 +1,6 @@
 import React from 'react'
+import { Segment } from 'semantic-ui-react'
+
 
 
 
@@ -10,21 +12,18 @@ function GroupListContainer(props) {
 		console.log(group.name);
 
 		return(
-			<div>
-				<li key={group.id}>
-					{group.name}
-				</li>
+			<Segment style={{margin: "5px"}} key={group.id}>
+				{group.name}
+			</Segment>
 				
-			</div>
+			
 			)
 	})
 
 
 	return(
-		<div>
-			<ul>
-				{groups}
-			</ul>
+		<div className="group-list">
+			{groups}
 		</div>
 		)
 }
