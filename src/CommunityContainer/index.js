@@ -12,7 +12,8 @@ class Community extends Component {
 		super()
 
 		this.state = {
-			groups: []
+			groups: [],
+			updateGroupId: -1
 		}
 	}
 
@@ -124,8 +125,10 @@ class Community extends Component {
 					</div>
 			
 				</div>
-
-				<GroupUpdateForm />
+				{this.state.updateGroupId !== -1
+					? <GroupUpdateForm />
+					:null
+				}
 
 			</div>
 			)
