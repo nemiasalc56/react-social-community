@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Icon } from 'semantic-ui-react'
+import { Segment, Dropdown } from 'semantic-ui-react'
 import './GroupList.css'
 
 
@@ -14,11 +14,17 @@ function GroupListContainer(props) {
 		return(
 			<Segment style={{margin: "5px"}} key={group.id}>
 				<div className="setting">
-					<Icon link name='setting'
-						onClick={() => console.log("helllo")}
-					 />
+					<Dropdown text='Settings'>
+					    <Dropdown.Menu>
+					      <Dropdown.Item text='Update' onClick={()=> console.log(group.id)}/>
+					      <Dropdown.Item text='Delete' />
+					      <Dropdown.Item text='Add member' />
+					    </Dropdown.Menu>
+					  </Dropdown>
 				</div>
-				{group.name}
+				<h3>
+					{group.name}
+				</h3>
 			</Segment>
 				
 			
