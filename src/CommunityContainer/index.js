@@ -3,8 +3,9 @@ import { BrowserRouter as Router,
         Switch,
         Route,
         Link } from 'react-router-dom'
-import NewGroupForm from './NewGroupForm'
 import './Community.css'
+import NewGroupForm from './NewGroupForm'
+import GroupListContainer from './GroupListContainer'
 
 
 
@@ -58,6 +59,7 @@ class Community extends Component {
 		console.log(groupInfo);
 		// define our url
 		const url = process.env.REACT_APP_API_URL + '/api/v1/groups/'
+
 		try {
 			// fetch call
 			const groupResponse = await fetch(url, {
@@ -116,8 +118,9 @@ class Community extends Component {
 				</Router>
 
 				<div>
-					{/* <div className="groupContainer"> */}
-					{/* </div> */}
+					<div className="groupContainer">
+						<GroupListContainer />
+					</div>
 
 					<div className="videoContainer">
 					</div>
