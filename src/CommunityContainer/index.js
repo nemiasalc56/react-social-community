@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Community.css'
 import NewGroupForm from './NewGroupForm'
 import GroupListContainer from './GroupListContainer'
+import GroupUpdateForm from './GroupUpdateForm'
 
 
 
@@ -48,6 +49,7 @@ class Community extends Component {
 			console.error(err);
 		}
 	}
+
 
 
 
@@ -122,6 +124,8 @@ class Community extends Component {
 					</div>
 			
 				</div>
+
+				<GroupUpdateForm />
 
 			</div>
 			)
