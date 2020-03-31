@@ -36,7 +36,7 @@ class GroupUpdateForm extends Component {
 	// submit the changes
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.updateGroup(this.state)
+		this.props.updateGroup(this.props.groupToEdit.id, this.state)
 		this.close()
 	}
 

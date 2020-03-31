@@ -99,9 +99,44 @@ class Community extends Component {
 		})
 	}
 
-	updateGroup = (newInfo) => {
+	updateGroup = async (id, newInfo) => {
 		console.log(newInfo);
-		
+		// define our url
+		const url = process.env.REACT_APP_API_URL + '/api/v1/groups/' + id
+
+		try {
+			// fetch the url
+			const groupResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'PUT',
+				body: JSON.stringify(newInfo),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			// get resolve json
+			const groupJson = await groupResponse.json()
+			console.log(groupJson);
+
+			if(groupJson.status === 200) {
+				const groups = this.state.groups.map((group) => {
+
+					if(group.id === id){
+						return groupJson.data
+					} else {
+						return group
+					}
+				})
+
+				this.setState({groups: groups})
+			}
+
+
+
+		} catch(err) {
+			console.error(err);
+		}
 	}
 
 	// this will close and open components
