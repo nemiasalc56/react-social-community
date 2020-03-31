@@ -8,14 +8,31 @@ class GroupUpdateForm extends Component {
 		super(props)
 
 		this.state = {
-			open: true
+			open: true,
+			name: ''
 		}
 	}
+
+	componentDidMount() {
+		this.setState({
+			name: this.props.groupToEdit.name
+		})
+	}
+
+
 
 	// close modal
 	close = () =>{
 		this.props.switcher()
 	}
+
+	// allow user to type in the form
+	handleChange = (e) => {
+		this.setState({
+			name: e.target.value
+		})
+	}
+
 
 
 	render() {
@@ -29,6 +46,8 @@ class GroupUpdateForm extends Component {
 						<Form.Input 
 							label="Name"
 							placeholder="Name"
+							value={this.state.name}
+							onChange={this.handleChange}
 						/>
 
 						<Button type="submit">Update</Button>
