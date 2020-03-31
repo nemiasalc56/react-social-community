@@ -36,7 +36,8 @@ class GroupUpdateForm extends Component {
 	// submit the changes
 	handleSubmit = (e) => {
 		e.preventDefault()
-		console.log("User is trying to update the group");
+		this.props.updateGroup(this.state)
+		this.close()
 	}
 
 

@@ -99,6 +99,11 @@ class Community extends Component {
 		})
 	}
 
+	updateGroup = (newInfo) => {
+		console.log(newInfo);
+		
+	}
+
 	// this will close and open components
 	switcher = () => {
 		this.setState({
@@ -143,10 +148,12 @@ class Community extends Component {
 					</div>
 			
 				</div>
+
 				{this.state.updateGroupId !== -1
 					? <GroupUpdateForm 
 					switcher={this.switcher}
 					groupToEdit={this.state.groups.find((group)=> group.id === this.state.updateGroupId)}
+					updateGroup={this.updateGroup}
 					/>
 					:null
 				}
