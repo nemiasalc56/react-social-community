@@ -18,6 +18,18 @@ class Community extends Component {
 		}
 	}
 
+	componentDidMount() {
+		this.getGroups()
+	}
+
+
+	// this method will get all the group
+	getGroups = () => {
+		console.log("getGroups");
+	}
+
+
+
 	// create group method
 	newGroup = async (groupInfo) => {
 		console.log(groupInfo);
