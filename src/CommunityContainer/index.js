@@ -125,8 +125,6 @@ class Community extends Component {
 				this.setState({groups: groups})
 			}
 
-
-
 		} catch(err) {
 			console.error(err);
 		}
@@ -181,6 +179,11 @@ class Community extends Component {
 		}
 	}
 
+	// get users
+	getUsers = async () => {
+		console.log("user is trying to get users");
+	} 
+
 
 	render() {
 
@@ -203,6 +206,7 @@ class Community extends Component {
 								groupToUpdate={this.groupToUpdate}
 								groups={this.state.groups}
 								deleteGroup={this.deleteGroup}
+								getUsers={this.getUsers}
 							/>
 							
 						</div>
