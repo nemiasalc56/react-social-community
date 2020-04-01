@@ -18,7 +18,7 @@ function GroupListContainer(props) {
 					<Dropdown text='Settings'>
 					    <Dropdown.Menu>
 					      <Dropdown.Item text='Update' onClick={()=> props.groupToUpdate(group.id)}/>
-					      <Dropdown.Item text='Add member' onClick={()=> props.getUsers()} />
+					      <Dropdown.Item text='Add member' onClick={()=> props.getGroupId(group.id)} />
 					      <Dropdown.Item text='Delete' onClick={()=> props.deleteGroup(group.id)} />
 					    </Dropdown.Menu>
 					  </Dropdown>

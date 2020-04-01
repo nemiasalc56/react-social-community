@@ -15,7 +15,7 @@ class Community extends Component {
 		this.state = {
 			groups: [],
 			updateGroupId: -1,
-			showUsersOpen: false,
+			groupToAddMemberId: -1,
 			users: []
 		}
 	}
@@ -137,7 +137,7 @@ class Community extends Component {
 	switcher = () => {
 		this.setState({
 			updateGroupId: -1,
-			showUsersOpen: false
+			groupToAddMemberId: -1
 		})
 	}
 
@@ -210,7 +210,12 @@ class Community extends Component {
 		} catch(err) {
 			console.error(err);
 		}
-	} 
+	}
+
+	 // get the group id that we want to add member
+	getGroupId = (id) => {
+		console.log(id);
+	}
 
 
 	render() {
@@ -235,6 +240,9 @@ class Community extends Component {
 								groups={this.state.groups}
 								deleteGroup={this.deleteGroup}
 								getUsers={this.getUsers}
+								updateGroup={this.updateGroup}
+								getGroupId={this.getGroupId}
+
 							/>
 							
 						</div>
@@ -261,10 +269,12 @@ class Community extends Component {
 					:null
 				}
 
-				{this.state.showUsersOpen?
+				{this.state.groupToAddMemberId !== -1?
 					<UserContainer 
 						switcher={this.switcher}
-						users={this.state.users}/>
+						users={this.state.users}
+						groupToAddMemberId={this.state.groupToAddMemberId}
+						/>
 					: null
 					}
 
