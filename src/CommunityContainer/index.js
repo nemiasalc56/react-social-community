@@ -136,7 +136,8 @@ class Community extends Component {
 	// this will close and open components
 	switcher = () => {
 		this.setState({
-			updateGroupId: -1
+			updateGroupId: -1,
+			showUsersOpen: false
 		})
 	}
 
@@ -261,7 +262,9 @@ class Community extends Component {
 				}
 
 				{this.state.showUsersOpen?
-					<UserContainer users={this.state.users}/>
+					<UserContainer 
+						switcher={this.switcher}
+						users={this.state.users}/>
 					: null
 					}
 

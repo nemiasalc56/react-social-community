@@ -13,13 +13,16 @@ class UserContainer extends Component {
 		}
 	}
 
-
+	// close method to close the modal
+	close = () => {
+		this.props.switcher()
+	}
 
 
 	render() {
 		
 		return(
-			<Modal size="mini" open={this.state.open}>
+			<Modal size="mini" open={this.state.open}  onClose={this.close}>
 				<div className="user-container">
 					<h3>Add Member</h3>
 					<div>
