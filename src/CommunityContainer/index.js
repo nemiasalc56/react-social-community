@@ -3,6 +3,7 @@ import './Community.css'
 import NewGroupForm from './NewGroupForm'
 import GroupListContainer from './GroupListContainer'
 import GroupUpdateForm from './GroupUpdateForm'
+import UserListContainer from './UserListContainer'
 
 
 
@@ -13,7 +14,8 @@ class Community extends Component {
 
 		this.state = {
 			groups: [],
-			updateGroupId: -1
+			updateGroupId: -1,
+			showUsersOpen: false
 		}
 	}
 
@@ -182,6 +184,25 @@ class Community extends Component {
 	// get users
 	getUsers = async () => {
 		console.log("user is trying to get users");
+		// define the url
+		const url = process.env.REACT_APP_API_URL + '/api/v1/users/'
+
+		try {
+			// fetch call that will get the users
+			const usersResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			const usersJson = await usersResponse.json()
+			console.log(usersJson);
+
+		} catch(err) {
+			console.error(err);
+		}
 	} 
 
 
@@ -232,6 +253,12 @@ class Community extends Component {
 					/>
 					:null
 				}
+
+				{this.state.showUsersOpen?
+					<UserListContainer />
+					: null
+
+					}
 
 			</div>
 			)
