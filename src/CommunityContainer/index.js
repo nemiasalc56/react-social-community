@@ -3,7 +3,7 @@ import './Community.css'
 import NewGroupForm from './NewGroupForm'
 import GroupListContainer from './GroupListContainer'
 import GroupUpdateForm from './GroupUpdateForm'
-import UserListContainer from './UserListContainer'
+import UserContainer from './UserContainer'
 
 
 
@@ -199,6 +199,9 @@ class Community extends Component {
 
 			const usersJson = await usersResponse.json()
 			console.log(usersJson);
+			if(usersJson.status === 200) {
+				this.setState({showUsersOpen: true})
+			}
 
 		} catch(err) {
 			console.error(err);
@@ -255,9 +258,8 @@ class Community extends Component {
 				}
 
 				{this.state.showUsersOpen?
-					<UserListContainer />
+					<UserContainer />
 					: null
-
 					}
 
 			</div>
