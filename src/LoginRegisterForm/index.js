@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './LoginRegister.css'
-import { Form, Button, Segment } from 'semantic-ui-react'
+import { Form, Segment } from 'semantic-ui-react'
 
 
 
@@ -137,9 +137,12 @@ class LoginRegisterForm extends Component {
 
 							</Form.Field>
 
-							<button color="green" type="submit">
-								{this.state.action === "login"?"Sign In" : "Sign Up"}
-							</button>
+							<Form.Field>
+								<button color="green" type="submit">
+									{this.state.action === "login"?"Sign In" : "Sign Up"}
+								</button>
+								
+							</Form.Field>
 							
 							<p id="login-link" onClick={this.switchForm}>
 								{this.state.action === "login"

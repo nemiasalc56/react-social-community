@@ -19,7 +19,6 @@ class App extends Component {
 
   // register method
   register = async (registerInfo) => {
-    console.log(registerInfo);
 
     // define our url
     const url = process.env.REACT_APP_API_URL + '/api/v1/users/register'
@@ -36,7 +35,7 @@ class App extends Component {
 
       // convert to json
       const registerJson = await registerResponse.json()
-      console.log(registerResponse);
+
       if(registerJson.status === 200) {
         this.setState({loggedIn: true})
       }
@@ -50,7 +49,6 @@ class App extends Component {
 
   // login method
   login = async (loginInfo) => {
-    console.log("login method is being called");
 
     // define the url
     const url = process.env.REACT_APP_API_URL + '/api/v1/users/login'
@@ -66,7 +64,7 @@ class App extends Component {
       })
 
       const loginJson = await loginResponse.json()
-      console.log(loginJson);
+
 
       if(loginJson.status === 200) {
         this.setState({loggedIn: true})

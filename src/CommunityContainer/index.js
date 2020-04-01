@@ -24,7 +24,6 @@ class Community extends Component {
 
 	// this method will get all the group
 	getGroups = async () => {
-		console.log("getGroups");
 		// define the url to fetch
 		const url = process.env.REACT_APP_API_URL + '/api/v1/groups/'
 
@@ -39,7 +38,6 @@ class Community extends Component {
 			})
 
 			const groupsJson = await groupsResponse.json()
-			console.log(groupsJson);
 
 			if(groupsJson.status === 200) {
 				this.setState({groups: groupsJson.data})
@@ -56,7 +54,6 @@ class Community extends Component {
 
 	// create group method
 	newGroup = async (groupInfo) => {
-		console.log(groupInfo);
 		// define our url
 		const url = process.env.REACT_APP_API_URL + '/api/v1/groups/'
 
@@ -72,7 +69,6 @@ class Community extends Component {
 			})
 
 			const groupJson = await groupResponse.json()
-			console.log(groupJson);
 
 			if(groupJson.status === 200) {
 				const groups = this.state.groups
@@ -92,7 +88,6 @@ class Community extends Component {
 
 	// get the group to update
 	groupToUpdate = (id) => {
-		console.log("groupToUpdate: ", id);
 
 		this.setState({
 			updateGroupId: id
@@ -100,7 +95,6 @@ class Community extends Component {
 	}
 
 	updateGroup = async (id, newInfo) => {
-		console.log(newInfo);
 		// define our url
 		const url = process.env.REACT_APP_API_URL + '/api/v1/groups/' + id
 
@@ -117,7 +111,6 @@ class Community extends Component {
 
 			// get resolve json
 			const groupJson = await groupResponse.json()
-			console.log(groupJson);
 
 			if(groupJson.status === 200) {
 				const groups = this.state.groups.map((group) => {
@@ -146,6 +139,11 @@ class Community extends Component {
 		})
 	}
 
+	// delete group
+	deleteGroup = (id) => {
+		console.log("User is trying to delete a group");
+	}
+
 
 	render() {
 
@@ -154,7 +152,6 @@ class Community extends Component {
 				<header>
 					<h1>Social Community</h1>
 
-					
 					<nav>
 						<p className="links">Home</p>
 						
@@ -167,7 +164,9 @@ class Community extends Component {
 						<div className="group-list">
 							<GroupListContainer 
 								groupToUpdate={this.groupToUpdate}
-								groups={this.state.groups}/>
+								groups={this.state.groups}
+								deleteGroup={this.deleteGroup}
+							/>
 							
 						</div>
 

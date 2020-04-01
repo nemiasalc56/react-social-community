@@ -8,7 +8,6 @@ function GroupListContainer(props) {
 
 
 	const groups = props.groups.map((group) => {
-		console.log(group.name);
 
 		return(
 			<Segment style={{
@@ -20,7 +19,7 @@ function GroupListContainer(props) {
 					    <Dropdown.Menu>
 					      <Dropdown.Item text='Update' onClick={()=> {props.groupToUpdate(group.id)}}/>
 					      <Dropdown.Item text='Add member' />
-					      <Dropdown.Item text='Delete' />
+					      <Dropdown.Item text='Delete' onClick={()=> props.deleteGroup(group.id)} />
 					    </Dropdown.Menu>
 					  </Dropdown>
 				</div>
