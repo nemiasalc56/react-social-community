@@ -1,4 +1,6 @@
 import React from 'react'
+import './UserListContainer.css'
+import { Segment } from 'semantic-ui-react'
 
 
 function UserListContainer(props) {
@@ -9,17 +11,15 @@ function UserListContainer(props) {
 		console.log(user.first_name);
 
 		return(
-			<div>
-				<p key={user.id}>{user.first_name}</p>
-
-			</div>
+				<Segment key={user.id} onClick={()=> console.log(user.id)}>
+					{user.first_name}
+				</Segment>
 			)
 	})
 
 	return(
 		<div>
-			<h3>UserListContainer</h3>
-			<div>
+			<div className="user-list">
 				{users}
 			</div>
 		</div>

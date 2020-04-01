@@ -21,8 +21,10 @@ class UserContainer extends Component {
 		return(
 			<Modal size="mini" open={this.state.open}>
 				<div className="user-container">
-					<h3>UserContainer</h3>
-					<UserListContainer users={this.props.users}/>
+					<h3>Add Member</h3>
+					<div>
+						<UserListContainer users={this.props.users}/>
+					</div>
 					
 				</div>
 			</Modal>
