@@ -18,6 +18,11 @@ class UserContainer extends Component {
 		this.props.switcher()
 	}
 
+	// add a member to a group
+	addMember = (id) => {
+		console.log("user is trying to add member with id: ", id);
+	}
+
 
 	render() {
 		
@@ -26,7 +31,9 @@ class UserContainer extends Component {
 				<div className="user-container">
 					<h3>Add Member</h3>
 					<div>
-						<UserListContainer users={this.props.users}/>
+						<UserListContainer 
+							addMember={this.addMember}
+							users={this.props.users}/>
 					</div>
 					
 				</div>

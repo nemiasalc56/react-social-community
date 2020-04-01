@@ -11,7 +11,7 @@ function UserListContainer(props) {
 		console.log(user.first_name);
 
 		return(
-				<Segment key={user.id} onClick={()=> console.log(user.id)}>
+				<Segment key={user.id} onClick={()=> props.addMember(user.id)}>
 					{user.first_name}
 				</Segment>
 			)
