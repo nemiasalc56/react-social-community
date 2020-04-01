@@ -15,7 +15,8 @@ class Community extends Component {
 		this.state = {
 			groups: [],
 			updateGroupId: -1,
-			showUsersOpen: false
+			showUsersOpen: false,
+			users: []
 		}
 	}
 
@@ -183,7 +184,6 @@ class Community extends Component {
 
 	// get users
 	getUsers = async () => {
-		console.log("user is trying to get users");
 		// define the url
 		const url = process.env.REACT_APP_API_URL + '/api/v1/users/'
 
@@ -198,9 +198,12 @@ class Community extends Component {
 			})
 
 			const usersJson = await usersResponse.json()
-			console.log(usersJson);
+
 			if(usersJson.status === 200) {
-				this.setState({showUsersOpen: true})
+				this.setState({
+					showUsersOpen: true,
+					users: usersJson.data
+				})
 			}
 
 		} catch(err) {
@@ -258,7 +261,7 @@ class Community extends Component {
 				}
 
 				{this.state.showUsersOpen?
-					<UserContainer />
+					<UserContainer users={this.state.users}/>
 					: null
 					}
 
