@@ -140,8 +140,45 @@ class Community extends Component {
 	}
 
 	// delete group
-	deleteGroup = (id) => {
+	deleteGroup = async (id) => {
 		console.log("User is trying to delete a group");
+		console.log(id);
+
+		// define our url
+		const url = process.env.REACT_APP_API_URL + '/api/v1/groups/' + id
+
+		try {
+
+			// fetch call to delete the group
+			const deleteGroupResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'DELETE',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			const deleteGroupJson = await deleteGroupResponse.json()
+			console.log(deleteGroupJson);
+
+			if(deleteGroupJson.status === 200) {
+				const groups = this.state.groups
+				let index
+
+				for(let i = 0; i < groups.length; i++) {
+					if(groups[i].id === id) {
+						index = i
+					}
+				}
+
+				groups.splice(index, 1)
+				this.setState({groups: groups})
+				
+			}
+
+		} catch(err) {
+			console.error(err);
+		}
 	}
 
 
