@@ -19,9 +19,35 @@ class UserContainer extends Component {
 	}
 
 	// add a member to a group
-	addMember = (group_fk, member_fk) => {
-		console.log(" member with id: ", group_fk);
+	addMember = async (member_fk) => {
+		console.log(" member with id: ", member_fk);
 		console.log("group id: ", this.props.groupToAddMemberId);
+
+		const member = {
+			group_fk: this.props.groupToAddMemberId,
+			member_fk: member_fk
+		}
+
+		// define our url
+		const url = process.env.REACT_APP_API_URL + '/api/v1/members/'
+
+		try {
+			// fetch call to add member in the group
+			const addMemberResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'POST',
+				body: JSON.stringify(member),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			const addMemberJson = await addMemberResponse.json()
+			console.log(addMemberJson);
+
+		} catch(err) {
+			console.error(err);
+		}
 
 	}
 
