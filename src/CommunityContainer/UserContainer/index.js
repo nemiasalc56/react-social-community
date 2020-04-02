@@ -21,6 +21,7 @@ class UserContainer extends Component {
 	// add a member to a group
 	addMember = (group_fk, member_fk) => {
 		console.log(" member with id: ", group_fk);
+		console.log("group id: ", this.props.groupToAddMemberId);
 
 	}
 

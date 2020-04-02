@@ -214,7 +214,10 @@ class Community extends Component {
 
 	 // get the group id that we want to add member
 	getGroupId = (id) => {
-		console.log(id);
+		this.getUsers()
+		this.setState({
+			groupToAddMemberId: id
+		})
 	}
 
 
@@ -239,7 +242,6 @@ class Community extends Component {
 								groupToUpdate={this.groupToUpdate}
 								groups={this.state.groups}
 								deleteGroup={this.deleteGroup}
-								getUsers={this.getUsers}
 								updateGroup={this.updateGroup}
 								getGroupId={this.getGroupId}
 
