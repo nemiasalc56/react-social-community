@@ -4,6 +4,7 @@ import NewGroupForm from './NewGroupForm'
 import GroupListContainer from './GroupListContainer'
 import GroupUpdateForm from './GroupUpdateForm'
 import UserContainer from './UserContainer'
+import ChatContainer from './ChatContainer'
 
 
 
@@ -258,6 +259,7 @@ class Community extends Component {
 					</div>
 
 					<div className="chatContainer">
+						<ChatContainer />
 					</div>
 			
 				</div>
