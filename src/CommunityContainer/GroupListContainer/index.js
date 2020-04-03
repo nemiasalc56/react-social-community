@@ -10,7 +10,7 @@ function GroupListContainer(props) {
 	const groups = props.groups.map((group) => {
 
 		return(
-			<Segment onClick={()=>console.log("this is the group id >>> ", group.id)} style={{
+			<Segment onClick={()=> props.getGroupToChat(group)} style={{
 				margin: "5px",
 				width: "135px"
 				}} key={group.id}>

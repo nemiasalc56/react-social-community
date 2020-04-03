@@ -17,7 +17,9 @@ class Community extends Component {
 			groups: [],
 			updateGroupId: -1,
 			groupToAddMemberId: -1,
-			users: []
+			users: [],
+			groupToChat: '',
+			groupToChatOpen: false
 		}
 	}
 
@@ -221,6 +223,15 @@ class Community extends Component {
 		})
 	}
 
+	// group to chat with
+	getGroupToChat = (group) => {
+		console.log(group);
+		this.setState({
+			groupToChat: group,
+			groupToChatOpen: true
+		})
+	}
+
 
 	render() {
 
@@ -245,6 +256,7 @@ class Community extends Component {
 								deleteGroup={this.deleteGroup}
 								updateGroup={this.updateGroup}
 								getGroupId={this.getGroupId}
+								getGroupToChat={this.getGroupToChat}
 
 							/>
 							
@@ -259,7 +271,10 @@ class Community extends Component {
 					</div>
 
 					<div className="chatContainer">
-						<ChatContainer />
+						{this.state.groupToChatOpen?
+						<ChatContainer groupToChat={this.state.groupToChat}/>
+						:null
+						}
 					</div>
 			
 				</div>
