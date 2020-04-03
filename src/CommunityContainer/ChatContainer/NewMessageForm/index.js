@@ -21,6 +21,12 @@ class NewMessageForm extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		this.props.sendMessage(this.state.message)
+		this.clearForm()
+	}
+
+	// clear the form after user submit
+	clearForm = () => {
+		this.setState({message: ''})
 	}
 
 	render() {
