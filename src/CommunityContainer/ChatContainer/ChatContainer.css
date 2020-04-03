@@ -1,0 +1,13 @@
+.message-container {
+	margin: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+	width: 23vw;
+	height: 50vh;
+}
+
+.new-message-form {
+	margin: 5px;
+	display: flex;
+	justify-content: center;
+}
