@@ -12,7 +12,10 @@ class NewMessageForm extends Component {
 	}
 
 
-
+	// handle the changes when user types
+	handleChange = (e) => {
+		this.setState({message: e.target.value})
+	}
 
 	render() {
 		return(
@@ -22,6 +25,7 @@ class NewMessageForm extends Component {
 					<Form.Input 
 						type="text"
 						value={this.state.message}
+						onChange={this.handleChange}
 					/>
 					<Button type="submit">Send</Button>
 				</Form>
