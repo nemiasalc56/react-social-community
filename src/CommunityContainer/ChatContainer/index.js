@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NewMessageForm from './NewMessageForm'
 import './ChatContainer.css'
+import MessageListContainer from './MessageListContainer'
 
 
 class ChatContainer extends Component {
@@ -37,6 +38,13 @@ class ChatContainer extends Component {
 			const sendMessageJson = await sendMessageResponse.json()
 			console.log(sendMessageJson);
 
+			// if succesfully send message added in state
+			if(sendMessageJson.status === 200) {
+				const messages = this.state.messages
+				messages.push(sendMessageJson.data)
+				this.setState({messages: messages})
+			}
+
 		} catch(err) {
 			console.error(err);
 		}
@@ -49,7 +57,7 @@ class ChatContainer extends Component {
 			<div>
 				<h4>Chatting with the group named {this.props.groupToChat.name}</h4>
 				<div className="message-container">
-					
+					<MessageListContainer />
 				</div>
 				
 				<div className="new-message-form">
