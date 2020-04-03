@@ -3,8 +3,8 @@ import { Form, Button } from 'semantic-ui-react'
 
 
 class NewMessageForm extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 
 		this.state = {
 			message: ''
@@ -17,10 +17,16 @@ class NewMessageForm extends Component {
 		this.setState({message: e.target.value})
 	}
 
+	// submit message
+	handleSubmit = (e) => {
+		e.preventDefault()
+		console.log("user is trying to submit changes");
+	}
+
 	render() {
 		return(
 			<div>
-				<Form>
+				<Form onSubmit={this.handleSubmit}>
 					
 					<Form.Input 
 						type="text"
