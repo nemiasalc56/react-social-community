@@ -20,7 +20,7 @@ class NewMessageForm extends Component {
 	// submit message
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.sendMessage(this.state.message)
+		this.props.sendMessage(this.state)
 		this.clearForm()
 	}
 

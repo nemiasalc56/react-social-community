@@ -15,9 +15,31 @@ class ChatContainer extends Component {
 
 
 	// send message method
-	sendMessage = (message) => {
+	sendMessage = async (message) => {
 		console.log("sendMessage method: user is trying to send message");
 		console.log(message);
+
+		// define the url
+		const url = process.env.REACT_APP_API_URL + '/api/v1/messages/' + this.props.groupToChat.id
+
+		console.log(this.props.groupToChat);
+		try {
+			// fetch call that will send the message
+			const sendMessageResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'POST',
+				body: JSON.stringify(message),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			const sendMessageJson = await sendMessageResponse.json()
+			console.log(sendMessageJson);
+
+		} catch(err) {
+			console.error(err);
+		}
 	}
 
 
