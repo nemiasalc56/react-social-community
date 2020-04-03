@@ -10,6 +10,7 @@ function UserListContainer(props) {
 	console.log("logged in user");
 	console.log(props.loggedInUser.id);
 	const users = props.users.map((user)=>{
+		// return all the users except the one logged in
 		if(user.id === props.loggedInUser.id){
 			return null
 		}else {
@@ -18,7 +19,7 @@ function UserListContainer(props) {
 						{user.first_name}
 					</Segment>
 				)
-			
+
 		}
 	})
 
