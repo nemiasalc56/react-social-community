@@ -275,6 +275,7 @@ class Community extends Component {
 					<UserContainer 
 						switcher={this.switcher}
 						users={this.state.users}
+						loggedInUser={this.props.user}
 						groupToAddMemberId={this.state.groupToAddMemberId}
 						/>
 					: null

@@ -7,14 +7,19 @@ function UserListContainer(props) {
 
 	console.log(props.users);
 
+	console.log("logged in user");
+	console.log(props.loggedInUser.id);
 	const users = props.users.map((user)=>{
-		console.log(user.first_name);
-
-		return(
-				<Segment key={user.id} onClick={()=> props.addMember(user.id)}>
-					{user.first_name}
-				</Segment>
-			)
+		if(user.id === props.loggedInUser.id){
+			return null
+		}else {
+			return(
+					<Segment key={user.id} onClick={()=> props.addMember(user.id)}>
+						{user.first_name}
+					</Segment>
+				)
+			
+		}
 	})
 
 	return(

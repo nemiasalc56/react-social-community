@@ -37,7 +37,10 @@ class App extends Component {
       const registerJson = await registerResponse.json()
 
       if(registerJson.status === 200) {
-        this.setState({loggedIn: true})
+        this.setState({
+          loggedIn: true,
+          user: registerJson.data
+        })
       }
 
     } catch(err) {
@@ -67,7 +70,10 @@ class App extends Component {
 
 
       if(loginJson.status === 200) {
-        this.setState({loggedIn: true})
+        this.setState({
+          loggedIn: true,
+          user: loginJson.data
+        })
       }
 
     } catch(err) {
@@ -83,7 +89,7 @@ class App extends Component {
     return (
     <div className="App">
       {this.state.loggedIn?
-        <CommunityContainer />
+        <CommunityContainer user={this.state.user}/>
         :
         <LoginRegisterForm 
           register={this.register}

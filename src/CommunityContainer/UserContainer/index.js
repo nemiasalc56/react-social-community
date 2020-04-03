@@ -61,7 +61,9 @@ class UserContainer extends Component {
 					<div>
 						<UserListContainer 
 							addMember={this.addMember}
-							users={this.props.users}/>
+							users={this.props.users}
+							loggedInUser={this.props.loggedInUser}
+						/>
 					</div>
 					
 				</div>
