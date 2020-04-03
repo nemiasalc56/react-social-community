@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import NewMessageForm from './NewMessageForm'
 
 
 class ChatContainer extends Component {
@@ -6,7 +7,7 @@ class ChatContainer extends Component {
 		super(props)
 
 		this.state = {
-			members: []
+			messages: []
 		}
 	}
 
@@ -18,7 +19,10 @@ class ChatContainer extends Component {
 	render() {
 
 		return(
-			<div>Chatting with the group named {this.props.groupToChat.name}</div>
+			<div>
+				<h4>Chatting with the group named {this.props.groupToChat.name}</h4>
+				
+			</div>
 			)
 	}
 }
