@@ -14,7 +14,11 @@ class ChatContainer extends Component {
 
 
 
-
+	// send message method
+	sendMessage = (message) => {
+		console.log("sendMessage method: user is trying to send message");
+		console.log(message);
+	}
 
 
 	render() {
@@ -27,7 +31,7 @@ class ChatContainer extends Component {
 				</div>
 				
 				<div className="new-message-form">
-					<NewMessageForm />
+					<NewMessageForm sendMessage={this.sendMessage} />
 				</div>
 			</div>
 			)

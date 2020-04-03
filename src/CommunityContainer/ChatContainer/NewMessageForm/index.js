@@ -20,7 +20,7 @@ class NewMessageForm extends Component {
 	// submit message
 	handleSubmit = (e) => {
 		e.preventDefault()
-		console.log("user is trying to submit changes");
+		this.props.sendMessage(this.state.message)
 	}
 
 	render() {
