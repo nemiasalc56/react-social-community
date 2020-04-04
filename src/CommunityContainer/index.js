@@ -19,7 +19,8 @@ class Community extends Component {
 			groupToAddMemberId: -1,
 			users: [],
 			groupToChat: '',
-			groupToChatOpen: false
+			groupToChatOpen: false,
+			messages: []
 		}
 	}
 
@@ -230,6 +231,12 @@ class Community extends Component {
 			groupToChat: group,
 			groupToChatOpen: true
 		})
+		this.getMessages()
+	}
+
+	// get messages
+	getMessages = () => {
+		console.log("get messages");
 	}
 
 

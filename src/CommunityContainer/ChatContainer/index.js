@@ -13,8 +13,6 @@ class ChatContainer extends Component {
 		}
 	}
 
-
-
 	// send message method
 	sendMessage = async (message) => {
 		console.log("sendMessage method: user is trying to send message");
@@ -49,6 +47,7 @@ class ChatContainer extends Component {
 			console.error(err);
 		}
 	}
+
 
 
 	render() {
