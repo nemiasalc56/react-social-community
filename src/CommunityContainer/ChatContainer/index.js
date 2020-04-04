@@ -9,7 +9,7 @@ class ChatContainer extends Component {
 		super(props)
 
 		this.state = {
-			messages: []
+			messages: this.props.messages
 		}
 	}
 

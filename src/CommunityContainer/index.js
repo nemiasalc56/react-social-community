@@ -227,10 +227,8 @@ class Community extends Component {
 	// group to chat with
 	getGroupToChat = async (group) => {
 		console.log(group);
-		this.setState({
-			groupToChat: group,
-			groupToChatOpen: true
-		})
+		// this is so that we can update the messages in the state
+		this.setState({groupToChatOpen: false})
 		
 		console.log("get messages");
 
@@ -251,6 +249,13 @@ class Community extends Component {
 
 			const messagesJson = await messagesResponse.json()
 			console.log(messagesJson);
+			if(messagesJson.status === 200) {
+				this.setState({
+					groupToChat: group,
+					groupToChatOpen: true,
+					messages: messagesJson.data
+				})
+			}
 
 		} catch(err) {
 			console.error(err);
@@ -300,7 +305,10 @@ class Community extends Component {
 
 					<div className="chatContainer">
 						{this.state.groupToChatOpen?
-						<ChatContainer groupToChat={this.state.groupToChat}/>
+						<ChatContainer 
+							groupToChat={this.state.groupToChat}
+							messages={this.state.messages}
+							/>
 						:null
 						}
 					</div>
