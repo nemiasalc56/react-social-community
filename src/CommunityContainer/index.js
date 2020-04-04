@@ -225,19 +225,40 @@ class Community extends Component {
 	}
 
 	// group to chat with
-	getGroupToChat = (group) => {
+	getGroupToChat = async (group) => {
 		console.log(group);
 		this.setState({
 			groupToChat: group,
 			groupToChatOpen: true
 		})
-		this.getMessages()
+		
+		console.log("get messages");
+
+
+		// define the url to get messages
+		const url = process.env.REACT_APP_API_URL + '/api/v1/messages/' + group.id
+
+		try {
+			// fetch call to get messages
+			const messagesResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+
+			const messagesJson = await messagesResponse.json()
+			console.log(messagesJson);
+
+		} catch(err) {
+			console.error(err);
+		}
+
 	}
 
-	// get messages
-	getMessages = () => {
-		console.log("get messages");
-	}
+	
 
 
 	render() {
