@@ -56,7 +56,7 @@ class ChatContainer extends Component {
 			<div>
 				<h4>Chatting with the group named {this.props.groupToChat.name}</h4>
 				<div className="message-container">
-					<MessageListContainer />
+					<MessageListContainer messages={this.state.messages}/>
 				</div>
 				
 				<div className="new-message-form">
