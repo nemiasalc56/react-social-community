@@ -5,6 +5,7 @@ import GroupListContainer from './GroupListContainer'
 import GroupUpdateForm from './GroupUpdateForm'
 import UserContainer from './UserContainer'
 import ChatContainer from './ChatContainer'
+import io from 'socket.io-client'
 
 
 
@@ -19,6 +20,7 @@ class Community extends Component {
 			groupToAddMemberId: -1,
 			users: [],
 			groupToChat: '',
+			groupToChatId: -1,
 			groupToChatOpen: false,
 			messages: []
 		}
@@ -228,38 +230,18 @@ class Community extends Component {
 	getGroupToChat = async (group) => {
 		console.log(group);
 		// this is so that we can update the messages in the state
-		this.setState({groupToChatOpen: false})
+
 		
-		console.log("get messages");
+
+		await this.setState({groupToChatOpen: false})
+		
+		this.setState({
+			groupToChat: group,
+			groupToChatId: group.id,
+			groupToChatOpen: true
+		})
 
 
-		// define the url to get messages
-		const url = process.env.REACT_APP_API_URL + '/api/v1/messages/' + group.id
-
-		try {
-			// fetch call to get messages
-			const messagesResponse = await fetch(url, {
-				credentials: 'include',
-				method: 'GET',
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			})
-
-
-			const messagesJson = await messagesResponse.json()
-			console.log(messagesJson);
-			if(messagesJson.status === 200) {
-				this.setState({
-					groupToChat: group,
-					groupToChatOpen: true,
-					messages: messagesJson.data
-				})
-			}
-
-		} catch(err) {
-			console.error(err);
-		}
 
 	}
 

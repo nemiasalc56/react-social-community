@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import NewMessageForm from './NewMessageForm'
 import './ChatContainer.css'
 import MessageListContainer from './MessageListContainer'
+import io from 'socket.io-client'
+
 
 
 class ChatContainer extends Component {
@@ -13,6 +15,10 @@ class ChatContainer extends Component {
 		}
 	}
 
+	componentDidMount() {
+		this.getMessages()
+	}
+
 	// send message method
 	sendMessage = async (message) => {
 		console.log("sendMessage method: user is trying to send message");
@@ -20,6 +26,23 @@ class ChatContainer extends Component {
 
 		// define the url
 		const url = process.env.REACT_APP_API_URL + '/api/v1/messages/' + this.props.groupToChat.id
+
+		const endPoint = process.env.REACT_APP_API_URL
+
+		const socket = io(url)
+
+		// const socket = io(`${endPoint}`)
+
+		const room = this.props.groupToChat.id
+
+		socket.emit('join', { room }, (error) => {
+	      if(error) {
+	        alert(error);
+	      }
+    	})
+
+		socket.emit("message", message);
+
 
 		console.log(this.props.groupToChat);
 		try {
@@ -48,10 +71,52 @@ class ChatContainer extends Component {
 		}
 	}
 
+	// get all the messages
+	getMessages = async () => {
+		// define the url to get messages
+		const url = process.env.REACT_APP_API_URL + '/api/v1/messages/' + this.props.groupToChat.id
+		const endPoint = process.env.REACT_APP_API_URL
+		const socket = io.connect(endPoint)
+
+		console.log('login group id');
+		console.log(this.state.groupToChatId);
+
+
+		socket.on('message', async (msg) => {
+		
+			try {
+				// fetch call to get messages
+				const messagesResponse = await fetch(url, {
+					credentials: 'include',
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				})
+
+
+				const messagesJson = await messagesResponse.json()
+				console.log(messagesJson);
+				if(messagesJson.status === 200) {
+					
+					this.setState({
+						messages: messagesJson.data
+					})	
+
+				}
+
+
+
+			} catch(err) {
+				console.error(err);
+			}
+			
+		})
+	}
 
 
 	render() {
-
+		console.log("messagessss", this.props.groupToChat.id);
 		return(
 			<div>
 				<h4>Chatting with the group named {this.props.groupToChat.name}</h4>
