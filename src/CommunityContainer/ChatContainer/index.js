@@ -29,7 +29,7 @@ class ChatContainer extends Component {
 
 		const endPoint = process.env.REACT_APP_API_URL
 
-		const socket = io(url)
+		const socket = io(endPoint)
 
 		// const socket = io(`${endPoint}`)
 
@@ -81,6 +81,13 @@ class ChatContainer extends Component {
 		console.log('login group id');
 		console.log(this.state.groupToChatId);
 
+		const room = this.props.groupToChat.id
+
+		socket.emit('join', { room }, (error) => {
+	      if(error) {
+	        alert(error);
+	      }
+    	})
 
 		socket.on('message', async (msg) => {
 		
@@ -121,7 +128,9 @@ class ChatContainer extends Component {
 			<div>
 				<h4>Chatting with the group named {this.props.groupToChat.name}</h4>
 				<div className="message-container">
-					<MessageListContainer messages={this.state.messages}/>
+					<MessageListContainer 
+						user={this.props.user}
+						messages={this.state.messages}/>
 				</div>
 				
 				<div className="new-message-form">

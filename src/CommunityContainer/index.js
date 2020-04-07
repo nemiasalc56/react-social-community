@@ -231,7 +231,17 @@ class Community extends Component {
 		console.log(group);
 		// this is so that we can update the messages in the state
 
-		
+// 		const endPoint = process.env.REACT_APP_API_URL + 
+// 		const socket = io(`${endPoint}`)
+// 
+// 		const room = group.id
+// 
+// 		socket.emit('join', { room }, (error) => {
+// 	      if(error) {
+// 	        alert(error);
+// 	      }
+//     	})
+
 
 		await this.setState({groupToChatOpen: false})
 		
@@ -290,6 +300,7 @@ class Community extends Component {
 						<ChatContainer 
 							groupToChat={this.state.groupToChat}
 							messages={this.state.messages}
+							user={this.props.user}
 							/>
 						:null
 						}

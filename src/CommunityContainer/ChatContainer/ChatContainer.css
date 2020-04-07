@@ -4,10 +4,32 @@
 	border-radius: 5px;
 	width: 23vw;
 	height: 50vh;
+	overflow: scroll;
+	/*display: flex;*/
 }
 
 .new-message-form {
 	margin: 5px;
-	display: flex;
 	justify-content: center;
+}
+
+.message-list {
+	/*display: inline-block;*/
+}
+
+
+.my-message {
+	border: 1px solid blue;
+	background-color: blue;
+	border-radius: 10px;
+	text-align: right;
+	color: white
+}
+
+.other-message {
+	border: 1px solid gray;
+	border-radius: 10px;
+	text-align: left;
+	color: white;
+	background-color: grey;
 }
