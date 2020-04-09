@@ -265,6 +265,9 @@ class Community extends Component {
 
 	getGroupMemberId = (id) => {
 		console.log("trying to see the members on group with id: ", id);
+
+		// set the id of the group to see the members
+		this.setState({groupMemberListId: id})
 	}
 
 
@@ -349,7 +352,9 @@ class Community extends Component {
 					}
 
 				{this.state.groupMemberListId !== -1?
-					<GroupMemberList />
+					<GroupMemberList 
+						groupMemberListId={this.state.groupMemberListId}
+					/>
 					:null
 				}
 
