@@ -5,6 +5,7 @@ import GroupListContainer from './GroupListContainer'
 import GroupUpdateForm from './GroupUpdateForm'
 import UserContainer from './UserContainer'
 import ChatContainer from './ChatContainer'
+import GroupMemberList from './GroupMemberList'
 import io from 'socket.io-client'
 
 
@@ -22,7 +23,9 @@ class Community extends Component {
 			groupToChat: '',
 			groupToChatId: -1,
 			groupToChatOpen: false,
-			messages: []
+			messages: [],
+			members: [],
+			groupMemberListOpen: false
 		}
 	}
 
@@ -235,9 +238,6 @@ class Community extends Component {
 
 	// group to chat with
 	getGroupToChat = async (group) => {
-		// console.log("loggin the group >>> ");
-		// console.log(group);
-		// this is so that we can update the messages in the state
 
 		const endPoint = process.env.REACT_APP_API_URL
 		const socket = io(`${endPoint}`)
@@ -252,30 +252,7 @@ class Community extends Component {
 	      }
     	})
 
-		// define the url to get messages
-		// const endPoint = process.env.REACT_APP_API_URL
-		// const socket = io.connect(endPoint)
 
-
-		// leave previus roomif there was one
-// 		if(this.state.groupToChatId !== -1) {
-// 			const room = this.state.groupToChatId
-// 
-// 			socket.emit('leave', { room }, (error) => {
-// 		      if(error) {
-// 		        alert(error);
-// 		      }
-// 	    	})
-// 		}
-
-		// join a room
-		// const room = group.id
-
-		// socket.emit('join', { room }, (error) => {
-	 //      if(error) {
-	 //        alert(error);
-	 //      }
-  //   	})
 		this.setState({
 			groupToChat: group,
 			groupToChatId: group.id,
@@ -315,7 +292,7 @@ class Community extends Component {
 						:null
 						}
 
-						{this.state.groupToChatOpen == false?
+						{this.state.groupToChatOpen === false?
 							<div className="groupContainers">
 
 								<div className="group-list">
@@ -361,6 +338,11 @@ class Community extends Component {
 						/>
 					: null
 					}
+
+				{this.state.groupMemberListOpen?
+					<GroupMemberList />
+					:null
+				}
 
 			</div>
 			)

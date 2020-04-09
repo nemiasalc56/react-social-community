@@ -22,9 +22,10 @@ function GroupListContainer(props) {
 					<div className="setting">
 						<Dropdown text='Settings'>
 						    <Dropdown.Menu>
-						      <Dropdown.Item text='Update' onClick={()=> props.groupToUpdate(group.id)}/>
-						      <Dropdown.Item text='Add member' onClick={()=> props.getGroupId(group.id)} />
-						      <Dropdown.Item text='Delete' onClick={()=> props.deleteGroup(group.id)} />
+						    	<Dropdown.Item text='Members' onClick={()=> console.log("trying to see members in the group")}/>
+								<Dropdown.Item text='Update' onClick={()=> props.groupToUpdate(group.id)}/>
+								<Dropdown.Item text='Add member' onClick={()=> props.getGroupId(group.id)} />
+								<Dropdown.Item text='Delete' onClick={()=> props.deleteGroup(group.id)} />
 						    </Dropdown.Menu>
 						  </Dropdown>
 					</div>

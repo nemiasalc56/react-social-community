@@ -44,6 +44,7 @@ class UserContainer extends Component {
 
 			const addMemberJson = await addMemberResponse.json()
 			console.log(addMemberJson);
+			this.close()
 
 		} catch(err) {
 			console.error(err);
