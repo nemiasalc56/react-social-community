@@ -319,13 +319,14 @@ class Community extends Component {
 							<div className="groupContainers">
 
 								<div className="group-list">
-									<GroupListContainer 
+									<GroupListContainer
 										groupToUpdate={this.groupToUpdate}
 										groups={this.state.groups}
 										deleteGroup={this.deleteGroup}
 										updateGroup={this.updateGroup}
 										getGroupId={this.getGroupId}
 										getGroupToChat={this.getGroupToChat}
+										user={this.props.user}
 
 									/>
 									
