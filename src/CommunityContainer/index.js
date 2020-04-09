@@ -25,7 +25,7 @@ class Community extends Component {
 			groupToChatOpen: false,
 			messages: [],
 			members: [],
-			groupMemberListOpen: false
+			groupMemberListId: -1
 		}
 	}
 
@@ -263,6 +263,14 @@ class Community extends Component {
 
 	}
 
+	getGroupMemberId = (id) => {
+		console.log("trying to see the members on group with id: ", id);
+	}
+
+
+
+
+
 	render() {
 
 		return(
@@ -304,6 +312,7 @@ class Community extends Component {
 										getGroupId={this.getGroupId}
 										getGroupToChat={this.getGroupToChat}
 										user={this.props.user}
+										getGroupMemberId={this.getGroupMemberId}
 
 									/>
 									
@@ -339,7 +348,7 @@ class Community extends Component {
 					: null
 					}
 
-				{this.state.groupMemberListOpen?
+				{this.state.groupMemberListId !== -1?
 					<GroupMemberList />
 					:null
 				}
