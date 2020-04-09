@@ -11,7 +11,7 @@ class ChatContainer extends Component {
 		super(props)
 
 		this.state = {
-			messages: this.props.messages
+			messages: []
 		}
 	}
 
@@ -30,16 +30,6 @@ class ChatContainer extends Component {
 		const endPoint = process.env.REACT_APP_API_URL
 
 		const socket = io(endPoint)
-
-		// const socket = io(`${endPoint}`)
-
-		const room = this.props.groupToChat.id
-
-		socket.emit('join', { room }, (error) => {
-	      if(error) {
-	        alert(error);
-	      }
-    	})
 
 		socket.emit("message", message);
 
@@ -78,54 +68,66 @@ class ChatContainer extends Component {
 		const endPoint = process.env.REACT_APP_API_URL
 		const socket = io.connect(endPoint)
 
-		console.log('login group id');
-		console.log(this.state.groupToChatId);
+		socket.on('message', (msg) => {
+			console.log("this is socket message >> ", msg);
+
+// 			const messages = this.state.messages
+// 
+// 			messages.push(msg)
+// 			this.setState({messages: messages})
+			this.getMessages()
+		})
+		
+		try {
+			// fetch call to get messages
+			const messagesResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+
+			const messagesJson = await messagesResponse.json()
+			console.log("this is getMessages in ChatContainer");
+			console.log(messagesJson);
+			if(messagesJson.status === 200) {
+				
+				this.setState({
+					messages: messagesJson.data
+				})	
+
+			}
+
+		} catch(err) {
+			console.error(err);
+		}
+			
+	}
+
+	// go back to group list
+	goBack = () => {
+		// leave room
+		const endPoint = process.env.REACT_APP_API_URL
+		const socket = io.connect(endPoint)
 
 		const room = this.props.groupToChat.id
 
-		socket.emit('join', { room }, (error) => {
+		socket.emit('leave', { room }, (error) => {
 	      if(error) {
 	        alert(error);
 	      }
     	})
 
-		socket.on('message', async (msg) => {
-		
-			try {
-				// fetch call to get messages
-				const messagesResponse = await fetch(url, {
-					credentials: 'include',
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json'
-					}
-				})
-
-
-				const messagesJson = await messagesResponse.json()
-				console.log(messagesJson);
-				if(messagesJson.status === 200) {
-					
-					this.setState({
-						messages: messagesJson.data
-					})	
-
-				}
-
-
-
-			} catch(err) {
-				console.error(err);
-			}
-			
-		})
+		this.props.switcher("chatContainer")
 	}
 
 
 	render() {
-		console.log("messagessss", this.props.groupToChat.id);
 		return(
 			<div>
+				<button onClick={this.goBack}>See Groups</button>
 				<h4>Chatting with the group named {this.props.groupToChat.name}</h4>
 				<div className="message-container">
 					<MessageListContainer 

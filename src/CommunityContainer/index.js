@@ -140,11 +140,18 @@ class Community extends Component {
 	}
 
 	// this will close and open components
-	switcher = () => {
+	switcher = (nameToClose) => {
 		this.setState({
 			updateGroupId: -1,
 			groupToAddMemberId: -1
 		})
+
+		if(nameToClose === "chatContainer") {
+			this.getGroups()
+			this.setState({groupToChatOpen: false})
+
+		}
+
 	}
 
 	// delete group
@@ -228,35 +235,56 @@ class Community extends Component {
 
 	// group to chat with
 	getGroupToChat = async (group) => {
-		console.log(group);
+		// console.log("loggin the group >>> ");
+		// console.log(group);
 		// this is so that we can update the messages in the state
 
-// 		const endPoint = process.env.REACT_APP_API_URL + 
-// 		const socket = io(`${endPoint}`)
-// 
-// 		const room = group.id
-// 
-// 		socket.emit('join', { room }, (error) => {
-// 	      if(error) {
-// 	        alert(error);
-// 	      }
-//     	})
+		const endPoint = process.env.REACT_APP_API_URL
+		const socket = io(`${endPoint}`)
+
+		const room = group.id
 
 
-		await this.setState({groupToChatOpen: false})
-		
+		// join a room
+		socket.emit('join', { room }, (error) => {
+	      if(error) {
+	        alert(error);
+	      }
+    	})
+
+		// define the url to get messages
+		// const endPoint = process.env.REACT_APP_API_URL
+		// const socket = io.connect(endPoint)
+
+
+		// leave previus roomif there was one
+// 		if(this.state.groupToChatId !== -1) {
+// 			const room = this.state.groupToChatId
+// 
+// 			socket.emit('leave', { room }, (error) => {
+// 		      if(error) {
+// 		        alert(error);
+// 		      }
+// 	    	})
+// 		}
+
+		// join a room
+		// const room = group.id
+
+		// socket.emit('join', { room }, (error) => {
+	 //      if(error) {
+	 //        alert(error);
+	 //      }
+  //   	})
 		this.setState({
 			groupToChat: group,
 			groupToChatId: group.id,
 			groupToChatOpen: true
-		})
+		})		
 
-
+		console.log("this is after the getGroupToChat");
 
 	}
-
-	
-
 
 	render() {
 
@@ -271,26 +299,8 @@ class Community extends Component {
 					</nav>
 				</header>
 
-
 				<div>
-					<div className="groupContainer">
-						<div className="group-list">
-							<GroupListContainer 
-								groupToUpdate={this.groupToUpdate}
-								groups={this.state.groups}
-								deleteGroup={this.deleteGroup}
-								updateGroup={this.updateGroup}
-								getGroupId={this.getGroupId}
-								getGroupToChat={this.getGroupToChat}
-
-							/>
-							
-						</div>
-
-						<div className="add-group-contianer">
-							<NewGroupForm newGroup={this.newGroup}/>
-						</div>
-					</div>
+						
 
 					<div className="videoContainer">
 					</div>
@@ -299,10 +309,34 @@ class Community extends Component {
 						{this.state.groupToChatOpen?
 						<ChatContainer 
 							groupToChat={this.state.groupToChat}
-							messages={this.state.messages}
 							user={this.props.user}
+							switcher={this.switcher}
 							/>
 						:null
+						}
+
+						{this.state.groupToChatOpen == false?
+							<div className="groupContainers">
+
+								<div className="group-list">
+									<GroupListContainer 
+										groupToUpdate={this.groupToUpdate}
+										groups={this.state.groups}
+										deleteGroup={this.deleteGroup}
+										updateGroup={this.updateGroup}
+										getGroupId={this.getGroupId}
+										getGroupToChat={this.getGroupToChat}
+
+									/>
+									
+								</div>
+
+								<div className="add-group-contianer">
+									<NewGroupForm newGroup={this.newGroup}/>
+								</div>
+
+							</div>
+							:null
 						}
 					</div>
 			
