@@ -8,7 +8,8 @@ class GroupMemberListContainer extends Component {
 		super(props)
 
 		this.state = {
-			open: true
+			open: true,
+			members: []
 		}
 	}
 
@@ -21,8 +22,33 @@ class GroupMemberListContainer extends Component {
 		this.props.switcher()
 	}
 
-	getMembers = () => {
+	getMembers = async () => {
 		console.log("trying to get members");
+		// define the url
+		const url = process.env.REACT_APP_API_URL + '/api/v1/members/' + this.props.groupMemberListId
+
+		try {
+
+			const membersResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			const membersJson = await membersResponse.json()
+
+			console.log(membersJson);
+
+			if(membersJson.status === 200) {
+				this.setState({members: membersJson.data})
+			}
+
+		} catch(err) {
+			console.error(err);
+		}
+
 	}
 
 	render() {
