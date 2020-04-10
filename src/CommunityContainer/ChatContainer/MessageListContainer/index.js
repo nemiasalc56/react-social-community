@@ -4,23 +4,25 @@ import React from 'react'
 
 function MessageListContainer(props) {
 
-	// console.log("messages in MessageListContainer: ");
-	// console.log(props.messages);
-	// console.log(props);
 
 	// loop through the messages to show the list
 	const messages = props.messages.map((message)=> {
-		// console.log(props.user.id);
-
+		console.log(message);
 		if(props.user.id === message.owner_fk.id) {
-			// console.log(message.owner_fk.id);
+
 			return(
-				<p key={message.id} className="my-message">{message.message}</p>
+				<div key={message.id} className="my-message">
+					<p>{message.message}</p>
+					<small>{message.owner_fk.first_name} on {message.created_at}</small>
+				</div>
 				)
 
 		} else {
 			return(
-				<p key={message.id} className="other-message">{message.message}</p>
+				<div key={message.id} className="other-message">
+					<p>{message.message}</p>
+					<small>{message.owner_fk.first_name} on {message.created_at}</small>
+				</div>
 				)
 		}
 	})

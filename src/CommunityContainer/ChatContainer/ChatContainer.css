@@ -23,7 +23,8 @@
 	background-color: blue;
 	border-radius: 10px;
 	text-align: right;
-	color: white
+	color: white;
+	margin: 15px;
 }
 
 .other-message {
@@ -32,4 +33,5 @@
 	text-align: left;
 	color: white;
 	background-color: grey;
+	margin: 15px;
 }
