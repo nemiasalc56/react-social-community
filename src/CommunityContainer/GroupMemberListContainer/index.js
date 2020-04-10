@@ -53,8 +53,43 @@ class GroupMemberListContainer extends Component {
 	}
 
 	// remove a member
-	removeMember = (memberId) => {
+	removeMember = async (memberId) => {
 		console.log("user is trying to remove member with id: ", memberId);
+		// define the url
+		const url = process.env.REACT_APP_API_URL + '/api/v1/members/' + memberId
+
+		try {
+			// fetch call to remove member
+			const removeMemberResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'DELETE',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			const removeMemberJson = await removeMemberResponse.json()
+			console.log(removeMemberJson);
+
+			if(removeMemberJson.status === 200) {
+				const members = this.state.members
+				let index
+
+				for(let i = 0; i < members.length; i++) {
+					if(members[i].id === memberId) {
+						index = i
+					}
+				}
+
+				members.splice(index, 1)
+				this.setState({members: members})
+
+			}
+
+		} catch(err) {
+			console.error(err);
+		}
+
 	}
 
 	render() {
