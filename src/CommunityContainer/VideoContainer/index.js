@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
 import SearchVideoForm from './SearchVideoForm'
+import VideoListContainer from './VideoListContainer'
 
 
 
@@ -44,6 +45,8 @@ class VideoContainer extends Component {
 		return(
 			<div>
 				<SearchVideoForm getVideos={this.getVideos}/>
+
+				<VideoListContainer />
 			</div>
 			)
 	}
