@@ -15,9 +15,9 @@ class VideoContainer extends Component {
 
 
 	// method that will get the videos to play
-	getVideos = async () => {
+	getVideos = async (name) => {
 		// define our url
-		const url = `https://www.googleapis.com/youtube/v3/search?part=id&q=cat&type=video&key=` + process.env.REACT_APP_YOUTUBE_API_KEY
+		const url = `https://www.googleapis.com/youtube/v3/search?part=id&q=${name}&type=video&key=` + process.env.REACT_APP_YOUTUBE_API_KEY
 
 		try {
 
@@ -43,7 +43,7 @@ class VideoContainer extends Component {
 
 		return(
 			<div>
-				<SearchVideoForm />
+				<SearchVideoForm getVideos={this.getVideos}/>
 			</div>
 			)
 	}

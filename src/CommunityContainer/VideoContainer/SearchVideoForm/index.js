@@ -17,12 +17,18 @@ class SearchVideoForm extends Component {
 		this.setState({search: e.target.value})
 	}
 
+	// submit search
+	handleSubmit = (e) => {
+		e.preventDefault()
+		this.props.getVideos(this.state.search)
+	}
+
 
 	render() {
 		return(
 			<div>
 				SearchVideoForm
-				<Form>
+				<Form onSubmit={this.handleSubmit}>
 
 					<Form.Input 
 						type="text" 
