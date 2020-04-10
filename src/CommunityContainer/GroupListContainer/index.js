@@ -9,9 +9,6 @@ function GroupListContainer(props) {
 
 	const groups = props.groups.map((group) => {
 
-		console.log(group);
-		console.log(props.user);
-
 		return(
 			<Segment onClick={()=> props.getGroupToChat(group)} style={{
 				margin: "5px",

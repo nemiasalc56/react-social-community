@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import './Community.css'
+import io from 'socket.io-client'
 import NewGroupForm from './NewGroupForm'
 import GroupListContainer from './GroupListContainer'
 import GroupUpdateForm from './GroupUpdateForm'
 import UserContainer from './UserContainer'
 import ChatContainer from './ChatContainer'
 import GroupMemberListContainer from './GroupMemberListContainer'
-import io from 'socket.io-client'
+import VideoContainer from './VideoContainer'
 
 
 
@@ -292,6 +293,7 @@ class Community extends Component {
 						
 
 					<div className="videoContainer">
+						<VideoContainer />
 					</div>
 
 					<div className="chatContainer">
