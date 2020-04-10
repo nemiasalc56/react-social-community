@@ -5,7 +5,7 @@ import GroupListContainer from './GroupListContainer'
 import GroupUpdateForm from './GroupUpdateForm'
 import UserContainer from './UserContainer'
 import ChatContainer from './ChatContainer'
-import GroupMemberList from './GroupMemberList'
+import GroupMemberListContainer from './GroupMemberListContainer'
 import io from 'socket.io-client'
 
 
@@ -146,7 +146,8 @@ class Community extends Component {
 	switcher = (nameToClose) => {
 		this.setState({
 			updateGroupId: -1,
-			groupToAddMemberId: -1
+			groupToAddMemberId: -1,
+			groupMemberListId: -1
 		})
 
 		if(nameToClose === "chatContainer") {
@@ -352,8 +353,9 @@ class Community extends Component {
 					}
 
 				{this.state.groupMemberListId !== -1?
-					<GroupMemberList 
+					<GroupMemberListContainer 
 						groupMemberListId={this.state.groupMemberListId}
+						switcher={this.switcher}
 					/>
 					:null
 				}
