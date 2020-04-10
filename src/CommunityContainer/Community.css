@@ -40,3 +40,12 @@
   background: transparent;
 }
 
+.video-container {
+	border: 5px solid black;
+	height: 91vh;
+	width: 65vw;
+	margin-left: 5vw;
+	margin-top: 2vw;
+	overflow: auto;
+}
+

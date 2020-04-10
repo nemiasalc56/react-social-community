@@ -273,9 +273,6 @@ class Community extends Component {
 	}
 
 
-
-
-
 	render() {
 
 		return(
@@ -283,16 +280,12 @@ class Community extends Component {
 				<header>
 					<h1>Social Community</h1>
 
-					<nav>
-						<p className="links">Home</p>
-						
-					</nav>
 				</header>
 
 				<div>
 						
 
-					<div className="videoContainer">
+					<div className="video-container">
 						<VideoContainer />
 					</div>
 
