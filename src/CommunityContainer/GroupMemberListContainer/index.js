@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Modal } from 'semantic-ui-react'
 import './GroupMemberList.css'
+import MemberList from './MemberList'
 
 
 class GroupMemberListContainer extends Component {
@@ -57,7 +58,7 @@ class GroupMemberListContainer extends Component {
 			<Modal size="mini" open={this.state.open} onClose={this.close}>
 				<div className="member-list">
 					<h3>GroupMemberListContainer</h3>
-					
+					<MemberList />
 				</div>
 			</Modal>
 			)
