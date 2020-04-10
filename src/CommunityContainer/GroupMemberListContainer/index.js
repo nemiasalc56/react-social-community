@@ -58,7 +58,7 @@ class GroupMemberListContainer extends Component {
 			<Modal size="mini" open={this.state.open} onClose={this.close}>
 				<div className="member-list">
 					<h3>GroupMemberListContainer</h3>
-					<MemberList />
+					<MemberList members={this.state.members}/>
 				</div>
 			</Modal>
 			)
