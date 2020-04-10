@@ -52,13 +52,20 @@ class GroupMemberListContainer extends Component {
 
 	}
 
+	// remove a member
+	removeMember = (memberId) => {
+		console.log("user is trying to remove member with id: ", memberId);
+	}
+
 	render() {
 
 		return(
 			<Modal size="mini" open={this.state.open} onClose={this.close}>
 				<div className="member-list">
 					<h3>GroupMemberListContainer</h3>
-					<MemberList members={this.state.members}/>
+					<MemberList 
+						removeMember={this.removeMember}
+						members={this.state.members}/>
 				</div>
 			</Modal>
 			)

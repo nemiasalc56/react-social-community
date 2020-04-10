@@ -9,7 +9,11 @@ function MemberList(props) {
 		return(
 			<Segment key={member.id}>
 				<h1>{member.member_fk.first_name}</h1>
-				<Button className="basic" color="red">Remove Member</Button>
+				<Button 
+					className="basic" 
+					color="red"
+					onClick={()=>props.removeMember(member.id)}
+					>Remove Member</Button>
 
 			</Segment>
 			)
