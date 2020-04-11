@@ -20,7 +20,7 @@ class SearchVideoForm extends Component {
 	// submit search
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.getVideos(this.state.search)
+		this.props.getVideoIds(this.state.search)
 	}
 
 

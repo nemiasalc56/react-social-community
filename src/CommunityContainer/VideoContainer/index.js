@@ -10,13 +10,13 @@ class VideoContainer extends Component {
 		super()
 
 		this.state = {
-			videos: []
+			videos: [] 
 		}
 	}
 
 
 	// method that will get the videos to play
-	getVideos = async (name) => {
+	getVideoIds = async (name) => {
 		// define our url
 		const url = `https://www.googleapis.com/youtube/v3/search?part=id&q=${name}&type=video&key=` + process.env.REACT_APP_YOUTUBE_API_KEY
 
@@ -31,12 +31,26 @@ class VideoContainer extends Component {
 			})
 
 			const videosJson = await videosResponse.json()
-			console.log(videosJson.items[0].id.videoId);
-			this.setState({videoId: videosJson.items[0].id.videoId})
+
+			// we are storing the items that have the video id
+			let videoIds = ""
+
+			for(let i = 0; i < videosJson.items.length; i++) {
+				videoIds += `${videosJson.items[i].id.videoId}` + "%"
+			}
+
+			// console.log("videoIds >>> ", videoIds);
+			
+			this.getVideosInfo(videoIds)
 
 		} catch(err) {
 			console.error(err);
 		}
+	}
+
+	// get video info with the video ids found
+	getVideosInfo = (videoIds) => {
+		console.log("this is getVideoIds >> ", videoIds);
 	}
 
 
@@ -44,7 +58,7 @@ class VideoContainer extends Component {
 
 		return(
 			<div>
-				<SearchVideoForm getVideos={this.getVideos}/>
+				<SearchVideoForm getVideoIds={this.getVideoIds}/>
 
 				<VideoListContainer />
 			</div>
