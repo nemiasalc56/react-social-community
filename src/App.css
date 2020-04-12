@@ -1,3 +1,8 @@
+body {
+	background-image: url('https://i.imgur.com/a0MO4MN.png');
+	background-size: cover;
+}
+
 .App {
   text-align: center;
 }
