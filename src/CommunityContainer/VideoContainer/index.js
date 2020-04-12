@@ -18,6 +18,11 @@ class VideoContainer extends Component {
 		}
 	}
 
+	// show the user a list of videos when they first access
+	componentDidMount() {
+		this.getVideoIds("music")
+	}
+
 
 	// method that will get the videos to play
 	getVideoIds = async (name) => {
@@ -72,7 +77,8 @@ class VideoContainer extends Component {
 			console.log(videosInfoJson);
 			this.setState({
 				videos: videosInfoJson.items,
-				videoListOpen: true
+				videoListOpen: true,
+				videoPlayerOpen: false
 			})
 
 		} catch(err) {

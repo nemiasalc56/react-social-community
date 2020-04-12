@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button } from 'semantic-ui-react'
+import { Form, Button, Icon } from 'semantic-ui-react'
 
 
 
@@ -33,17 +33,19 @@ class SearchVideoForm extends Component {
 	render() {
 		return(
 			<div>
-				SearchVideoForm
 				<Form onSubmit={this.handleSubmit}>
+					<div className="search-container">
+						<Form.Input 
+							type="text"
+							style={{width: "55vw"}}
+							value={this.state.search} 
+							onChange={this.handleChange}
+							placeholder="Search..."
+						/>
 
-					<Form.Input 
-						type="text" 
-						value={this.state.search} 
-						onChange={this.handleChange}
-						placeholder="Search..."
-					/>
-
-					<Button type="submit">Search</Button>
+						<Button type="submit" style={{height: "38px"}}> <Icon name="search"/></Button>
+						
+					</div>
 				</Form>
 			</div>
 			)
