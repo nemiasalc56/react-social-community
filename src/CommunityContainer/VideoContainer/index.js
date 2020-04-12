@@ -19,7 +19,7 @@ class VideoContainer extends Component {
 	// method that will get the videos to play
 	getVideoIds = async (name) => {
 		// define our url
-		const url = `https://www.googleapis.com/youtube/v3/search?part=id&q=${name}&type=video&key=` + process.env.REACT_APP_YOUTUBE_API_KEY
+		const url = `https://www.googleapis.com/youtube/v3/search?part=id&q=${name}&type=video&maxResults=20&key=` + process.env.REACT_APP_YOUTUBE_API_KEY
 
 		try {
 
@@ -77,6 +77,11 @@ class VideoContainer extends Component {
 		}
 	}
 
+	// method that get the video to play
+	getVideoToPlay = (videoId) => {
+		console.log("user is trying to play video with the id: ", videoId);
+	}
+
 
 	render() {
 
@@ -84,7 +89,12 @@ class VideoContainer extends Component {
 			<div>
 				<SearchVideoForm getVideoIds={this.getVideoIds}/>
 
-				<VideoListContainer videos={this.state.videos} />
+				{this.state.videoListOpen?
+					<VideoListContainer 
+						getVideoToPlay={this.getVideoToPlay}
+						videos={this.state.videos} />
+					: null
+				}
 			</div>
 			)
 	}

@@ -15,7 +15,9 @@ function VideoListContainer(props) {
 			<Segment key={video.id}>
 
 				<Image 
-					src={video.snippet.thumbnails.standard.url} 
+					src={video.snippet.thumbnails.standard.url}
+					// when the user click the picture, we will send the video id through props
+					onClick={()=> props.getVideoToPlay(video.id)}
 				/>
 				<h1>{video.snippet.title}</h1>
 
