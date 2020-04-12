@@ -49,3 +49,7 @@
 	overflow: auto;
 }
 
+.video-image:hover {
+	cursor: pointer;
+}
+

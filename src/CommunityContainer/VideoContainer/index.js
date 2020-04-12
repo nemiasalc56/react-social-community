@@ -13,7 +13,8 @@ class VideoContainer extends Component {
 		this.state = {
 			videos: [],
 			videoListOpen: false,
-			videoPlayerOpen: false
+			videoPlayerOpen: false,
+			videoToPlay: null
 		}
 	}
 
@@ -80,10 +81,13 @@ class VideoContainer extends Component {
 	}
 
 	// method that get the video to play
-	getVideoToPlay = (videoId) => {
-		console.log("user is trying to play video with the id: ", videoId);
+	getVideoToPlay = (video) => {
+		console.log("user is trying to play video with the id: ", video);
+
+
 		this.setState({
-			videoPlayerOpen: true
+			videoPlayerOpen: true,
+			videoToPlay: video
 		})
 	}
 
@@ -95,7 +99,9 @@ class VideoContainer extends Component {
 				<SearchVideoForm getVideoIds={this.getVideoIds}/>
 
 				{this.state.videoPlayerOpen?
-					<VideoPlayerContainer />
+					<VideoPlayerContainer 
+						videoToPlay={this.state.videoToPlay}
+					/>
 					:null
 				}
 
