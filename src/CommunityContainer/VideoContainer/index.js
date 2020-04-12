@@ -10,7 +10,8 @@ class VideoContainer extends Component {
 		super()
 
 		this.state = {
-			videos: [] 
+			videos: [],
+			videoListOpen: false
 		}
 	}
 
@@ -36,11 +37,11 @@ class VideoContainer extends Component {
 			let videoIds = ""
 
 			for(let i = 0; i < videosJson.items.length; i++) {
-				// doing this because on the getVideosInfo method we can 
-				// use only one or two videos id
-				this.getVideosInfo(videosJson.items[i].id.videoId)
+				// adding "%2C+" works with all the ids
+				videoIds +=  "%2C+" + `${videosJson.items[i].id.videoId}`
 			}
 
+			this.getVideosInfo(videoIds)
 
 		} catch(err) {
 			console.error(err);
@@ -65,12 +66,11 @@ class VideoContainer extends Component {
 			const videosInfoJson = await videosInfoResponse.json()
 
 			console.log("getting the response from getVideosInfo");
-			console.log(videosInfoJson.items[0]);
-			const videos = this.state.videos
-
-			videos.push(videosInfoJson.items[0])
-
-			this.setState({videos: videos})
+			console.log(videosInfoJson);
+			this.setState({
+				videos: videosInfoJson.items,
+				videoListOpen: true
+			})
 
 		} catch(err) {
 			console.error(err);
@@ -84,7 +84,7 @@ class VideoContainer extends Component {
 			<div>
 				<SearchVideoForm getVideoIds={this.getVideoIds}/>
 
-				<VideoListContainer />
+				<VideoListContainer videos={this.state.videos} />
 			</div>
 			)
 	}
