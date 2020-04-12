@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
 import SearchVideoForm from './SearchVideoForm'
 import VideoListContainer from './VideoListContainer'
+import VideoPlayerContainer from './VideoPlayerContainer'
 
 
 
@@ -11,7 +12,8 @@ class VideoContainer extends Component {
 
 		this.state = {
 			videos: [],
-			videoListOpen: false
+			videoListOpen: false,
+			videoPlayerOpen: false
 		}
 	}
 
@@ -80,6 +82,9 @@ class VideoContainer extends Component {
 	// method that get the video to play
 	getVideoToPlay = (videoId) => {
 		console.log("user is trying to play video with the id: ", videoId);
+		this.setState({
+			videoPlayerOpen: true
+		})
 	}
 
 
@@ -88,6 +93,11 @@ class VideoContainer extends Component {
 		return(
 			<div>
 				<SearchVideoForm getVideoIds={this.getVideoIds}/>
+
+				{this.state.videoPlayerOpen?
+					<VideoPlayerContainer />
+					:null
+				}
 
 				{this.state.videoListOpen?
 					<VideoListContainer 
