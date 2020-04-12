@@ -36,12 +36,11 @@ class VideoContainer extends Component {
 			let videoIds = ""
 
 			for(let i = 0; i < videosJson.items.length; i++) {
-				videoIds += `${videosJson.items[i].id.videoId}` + "%"
+				// doing this because on the getVideosInfo method we can 
+				// use only one or two videos id
+				this.getVideosInfo(videosJson.items[i].id.videoId)
 			}
 
-			// console.log("videoIds >>> ", videoIds);
-			
-			this.getVideosInfo(videoIds)
 
 		} catch(err) {
 			console.error(err);
@@ -49,8 +48,33 @@ class VideoContainer extends Component {
 	}
 
 	// get video info with the video ids found
-	getVideosInfo = (videoIds) => {
+	getVideosInfo = async (videoIds) => {
 		console.log("this is getVideoIds >> ", videoIds);
+		// define our youtube url
+		const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoIds}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+
+		try {
+
+			const videosInfoResponse = await fetch(url, {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			const videosInfoJson = await videosInfoResponse.json()
+
+			console.log("getting the response from getVideosInfo");
+			console.log(videosInfoJson.items[0]);
+			const videos = this.state.videos
+
+			videos.push(videosInfoJson.items[0])
+
+			this.setState({videos: videos})
+
+		} catch(err) {
+			console.error(err);
+		}
 	}
 
 
