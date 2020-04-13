@@ -87,6 +87,7 @@ class LoginRegisterForm extends Component {
 								<div>
 									<Form.Input 
 									label="First name"
+									style={{width: "400px"}}
 									type="text"
 									name="first_name"
 									value={this.state.first_name}
@@ -96,20 +97,12 @@ class LoginRegisterForm extends Component {
 
 									<Form.Input
 										label="Last name"
+										style={{width: "400px"}}
 										type="text"
 										name="last_name"
 										value={this.state.last_name}
 										onChange={this.handleChange}
 										placeholder="Last name"
-									/>
-
-									<Form.Input
-										label="Picture"
-										type="text"
-										name="picture"
-										value={this.state.picture}
-										onChange={this.handleChange}
-										placeholder="Picture"
 									/>
 									
 								</div>
@@ -119,6 +112,7 @@ class LoginRegisterForm extends Component {
 
 							<Form.Input
 								label="Email"
+								style={{width: "400px"}}
 								type="text"
 								name="email"
 								value={this.state.email}
@@ -128,6 +122,7 @@ class LoginRegisterForm extends Component {
 
 							<Form.Input
 								label="Password"
+								style={{width: "400px"}}
 								type="password"
 								name="password"
 								value={this.state.password}

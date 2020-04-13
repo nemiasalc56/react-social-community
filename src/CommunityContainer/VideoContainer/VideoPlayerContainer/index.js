@@ -10,7 +10,7 @@ class VideoPlayerContainer extends Component {
 		this.state = {
 			opts: {
 		    	height: '490',
-		      	width: '740',
+		      	width: '910',
 		      	playerVars: {
 	        		autoplay: 1,
 	      		}

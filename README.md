@@ -1,14 +1,32 @@
 ## Social Community
 
-An app the users can chat and create group chat. A user will be able to create a group and search for a video or music to watch and the will be able to keep chatting in the group at the same time.
+An app where the users can create group and chat with that group. At the same time the user will be able to search for videos to watch and click one to watch while chatting with others.
+
 
 ## User stories
 
 * User can register
-* User can login or logout
-* User can create a group to chat
-* User can select a video to watch if the group was created
-* User can delete a group
+* User can login and logout
+* User can Update or delete the account
+* User can create, update and delete a group
+* Owner of the group can add members to a group
+* Owner of the group can remove members from a group
+
+
+## Installation
+
+```
+$ create-react-app react-social-community
+$ npm install semantic-ui-react semantic-ui-css
+$ npm install react-youtube
+```
+
+
+## Tables
+
+
+
+## Wireframes
 
 
 
@@ -91,12 +109,12 @@ class Player(Model):
 ## Nice to have
 
 * Group in the chat will be able to watch the same video at the same time
+* Show notifications for new messages
 
 
 ## Technology Used
 
 * Youtube API
-* Cloudinary
 * Python
 * Flask
 * React
