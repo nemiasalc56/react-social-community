@@ -58,7 +58,6 @@ class VideoContainer extends Component {
 
 	// get video info with the video ids found
 	getVideosInfo = async (videoIds) => {
-		console.log("this is getVideoIds >> ", videoIds);
 		// define our youtube url
 		const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoIds}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
 
@@ -73,8 +72,7 @@ class VideoContainer extends Component {
 
 			const videosInfoJson = await videosInfoResponse.json()
 
-			console.log("getting the response from getVideosInfo");
-			console.log(videosInfoJson);
+			
 			this.setState({
 				videos: videosInfoJson.items,
 				videoListOpen: true,
@@ -88,8 +86,6 @@ class VideoContainer extends Component {
 
 	// method that get the video to play
 	getVideoToPlay = (video) => {
-		console.log("user is trying to play video with the id: ", video);
-
 
 		this.setState({
 			videoPlayerOpen: true,

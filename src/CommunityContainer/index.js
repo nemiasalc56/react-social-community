@@ -13,8 +13,8 @@ import VideoContainer from './VideoContainer'
 
 
 class Community extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 
 		this.state = {
 			groups: [],
@@ -279,7 +279,7 @@ class Community extends Component {
 			<div>
 				<header>
 					<h1>Social Community</h1>
-
+					<h3>{this.props.user.first_name}</h3>
 				</header>
 
 				<div>
@@ -300,7 +300,7 @@ class Community extends Component {
 						}
 
 						{this.state.groupToChatOpen === false?
-							<div className="groupContainers">
+							<div className="groupContainerss">
 
 								<div className="group-list">
 									<GroupListContainer

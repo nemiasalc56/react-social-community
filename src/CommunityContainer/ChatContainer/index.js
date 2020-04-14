@@ -127,7 +127,7 @@ class ChatContainer extends Component {
 	render() {
 		return(
 			<div>
-				<button onClick={this.goBack}>See Groups</button>
+				<button className="ui button" onClick={this.goBack}>See Groups</button>
 				<h4>Chatting with the group named {this.props.groupToChat.name}</h4>
 				<div className="message-container">
 					<MessageListContainer 

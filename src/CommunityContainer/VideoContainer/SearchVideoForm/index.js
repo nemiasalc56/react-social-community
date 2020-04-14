@@ -43,7 +43,12 @@ class SearchVideoForm extends Component {
 							placeholder="Search..."
 						/>
 
-						<Button type="submit" style={{height: "38px"}}> <Icon name="search"/></Button>
+						<button 
+							className="ui button" 
+							type="submit" 
+							style={{height: "38px"}}> 
+							<Icon name="search"/>
+						</button>
 						
 					</div>
 				</Form>

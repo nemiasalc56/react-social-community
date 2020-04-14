@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
+import { Form, Segment, Button } from 'semantic-ui-react'
 import './LoginRegister.css'
-import { Form, Segment } from 'semantic-ui-react'
 
 
 
@@ -63,7 +63,9 @@ class LoginRegisterForm extends Component {
 	render() {
 		return(
 			<div>
-				<h1>Social Community</h1>
+				<header>
+					<h1>Social Community</h1>
+				</header>
 
 				<div className="login-register-form">
 					<Segment>
@@ -82,7 +84,6 @@ class LoginRegisterForm extends Component {
 							
 							{this.state.action === "login"
 								? null
-
 								:
 								<div>
 									<Form.Input 
@@ -133,7 +134,7 @@ class LoginRegisterForm extends Component {
 							</Form.Field>
 
 							<Form.Field>
-								<button color="green" type="submit">
+								<button className="ui button" type="submit">
 									{this.state.action === "login"?"Sign In" : "Sign Up"}
 								</button>
 								

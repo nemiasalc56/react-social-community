@@ -12,3 +12,8 @@
 .login-register-title h3 {
 	font-size: 30px;
 }
+
+header {
+	background-color: rgba(0, 0, 0, .5);
+	color: white;
+}

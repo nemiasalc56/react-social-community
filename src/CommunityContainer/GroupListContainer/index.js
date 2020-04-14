@@ -12,7 +12,7 @@ function GroupListContainer(props) {
 		return(
 			<Segment onClick={()=> props.getGroupToChat(group)} style={{
 				margin: "5px",
-				width: "135px"
+				width: "335px"
 				}} key={group.id}>
 
 				{props.user.id === group.owner_fk.id?
@@ -25,9 +25,7 @@ function GroupListContainer(props) {
 								<Dropdown.Item text='Delete' onClick={()=> props.deleteGroup(group.id)} />
 						    </Dropdown.Menu>
 						  </Dropdown>
-					</div>
-
-					
+					</div>					
 					:null
 				}
 				<h3>
@@ -41,7 +39,7 @@ function GroupListContainer(props) {
 
 
 	return(
-		<div className="group-list">
+		<div className="group-lists">
 			{groups}
 		</div>
 		)

@@ -43,7 +43,7 @@ class NewGroupForm extends Component {
 						onChange={this.handleChange}
 						name="name" />
 
-					<button>Add Group</button>
+					<button className="ui button">Add Group</button>
 				</Form>
 			</div>
 			)
