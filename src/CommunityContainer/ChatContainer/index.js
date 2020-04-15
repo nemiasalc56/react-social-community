@@ -71,11 +71,6 @@ class ChatContainer extends Component {
 		socket.on('message', (msg) => {
 			console.log("this is socket message >> ", msg);
 
-// 			const messages = this.state.messages
-// 
-// 			messages.push(msg)
-// 			this.setState({messages: messages})
-			this.getMessages()
 		})
 		
 		try {
@@ -88,10 +83,9 @@ class ChatContainer extends Component {
 				}
 			})
 
-
 			const messagesJson = await messagesResponse.json()
-			console.log("this is getMessages in ChatContainer");
-			console.log(messagesJson);
+			console.log("this is getMessages in ChatContainer")
+			console.log(messagesJson)
 			if(messagesJson.status === 200) {
 				
 				this.setState({
@@ -108,6 +102,9 @@ class ChatContainer extends Component {
 
 	// go back to group list
 	goBack = () => {
+
+		this.props.switcher("chatContainer")
+		
 		// leave room
 		const endPoint = process.env.REACT_APP_API_URL
 		const socket = io.connect(endPoint)
@@ -119,8 +116,6 @@ class ChatContainer extends Component {
 	        alert(error);
 	      }
     	})
-
-		this.props.switcher("chatContainer")
 	}
 
 

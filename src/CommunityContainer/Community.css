@@ -36,8 +36,7 @@ header, h1 {
 
 .group-list {
 	overflow: auto;
-	height: 50vh;/*
-	width: 20vw;*/
+	height: 55vh;
 }
 
 .group-list::-webkit-scrollbar-thumb {
@@ -60,3 +59,7 @@ header, h1 {
 	display: flex;
 }
 
+
+.add-group-contianer {
+	margin-top: 15px;
+}

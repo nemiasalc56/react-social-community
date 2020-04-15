@@ -6,14 +6,10 @@ import './GroupList.css'
 
 function GroupListContainer(props) {
 
-
 	const groups = props.groups.map((group) => {
 
 		return(
-			<Segment onClick={()=> props.getGroupToChat(group)} style={{
-				margin: "5px",
-				width: "335px"
-				}} key={group.id}>
+			<Segment onClick={()=> props.getGroupToChat(group)} key={group.id}>
 
 				{props.user.id === group.owner_fk.id?
 					<div className="setting">
@@ -32,14 +28,13 @@ function GroupListContainer(props) {
 					{group.name}
 				</h3>
 			</Segment>
-				
-			
-			)
+					
+		)
 	})
 
 
 	return(
-		<div className="group-lists">
+		<div className="group-list">
 			{groups}
 		</div>
 		)

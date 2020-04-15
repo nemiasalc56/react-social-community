@@ -241,6 +241,14 @@ class Community extends Component {
 	// group to chat with
 	getGroupToChat = async (group) => {
 
+
+
+		this.setState({
+			groupToChat: group,
+			groupToChatId: group.id,
+			groupToChatOpen: true
+		})		
+
 		const endPoint = process.env.REACT_APP_API_URL
 		const socket = io(`${endPoint}`)
 
@@ -253,14 +261,6 @@ class Community extends Component {
 	        alert(error);
 	      }
     	})
-
-
-		this.setState({
-			groupToChat: group,
-			groupToChatId: group.id,
-			groupToChatOpen: true
-		})		
-
 		console.log("this is after the getGroupToChat");
 
 	}
@@ -300,7 +300,7 @@ class Community extends Component {
 						}
 
 						{this.state.groupToChatOpen === false?
-							<div className="groupContainerss">
+							<div className="groupContainers">
 
 								<div className="group-list">
 									<GroupListContainer
