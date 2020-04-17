@@ -7,7 +7,7 @@ function MessageListContainer(props) {
 
 	// loop through the messages to show the list
 	const messages = props.messages.map((message)=> {
-		console.log(message);
+
 		if(props.user.id === message.owner_fk.id) {
 
 			return(

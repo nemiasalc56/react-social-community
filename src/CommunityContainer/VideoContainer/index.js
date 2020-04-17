@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Form } from 'semantic-ui-react'
 import SearchVideoForm from './SearchVideoForm'
 import VideoListContainer from './VideoListContainer'
 import VideoPlayerContainer from './VideoPlayerContainer'

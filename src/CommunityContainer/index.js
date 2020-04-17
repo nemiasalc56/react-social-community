@@ -10,6 +10,10 @@ import GroupMemberListContainer from './GroupMemberListContainer'
 import VideoContainer from './VideoContainer'
 
 
+const endPoint = process.env.REACT_APP_API_URL
+const socket = io(`${endPoint}`)
+
+
 
 
 class Community extends Component {
@@ -239,7 +243,7 @@ class Community extends Component {
 	}
 
 	// group to chat with
-	getGroupToChat = async (group) => {
+	getGroupToChat = (group) => {
 
 
 
@@ -247,10 +251,8 @@ class Community extends Component {
 			groupToChat: group,
 			groupToChatId: group.id,
 			groupToChatOpen: true
-		})		
+		})
 
-		const endPoint = process.env.REACT_APP_API_URL
-		const socket = io(`${endPoint}`)
 
 		const room = group.id
 

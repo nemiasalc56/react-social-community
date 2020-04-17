@@ -4,6 +4,10 @@ import './ChatContainer.css'
 import MessageListContainer from './MessageListContainer'
 import io from 'socket.io-client'
 
+// declaring the var here don't the issue when loading socketio
+const endPoint = process.env.REACT_APP_API_URL
+const socket = io.connect(endPoint)
+
 
 
 class ChatContainer extends Component {
@@ -26,10 +30,6 @@ class ChatContainer extends Component {
 
 		// define the url
 		const url = process.env.REACT_APP_API_URL + '/api/v1/messages/' + this.props.groupToChat.id
-
-		const endPoint = process.env.REACT_APP_API_URL
-
-		const socket = io(endPoint)
 
 		socket.emit("message", message);
 
@@ -65,15 +65,13 @@ class ChatContainer extends Component {
 	getMessages = async () => {
 		// define the url to get messages
 		const url = process.env.REACT_APP_API_URL + '/api/v1/messages/' + this.props.groupToChat.id
-		const endPoint = process.env.REACT_APP_API_URL
-		const socket = io.connect(endPoint)
-
+		
 		socket.on('message', (msg) => {
 			console.log("this is socket message >> ", msg);
-
 		})
 		
 		try {
+			
 			// fetch call to get messages
 			const messagesResponse = await fetch(url, {
 				credentials: 'include',
@@ -82,6 +80,7 @@ class ChatContainer extends Component {
 					'Content-Type': 'application/json'
 				}
 			})
+			console.log("getting messages");
 
 			const messagesJson = await messagesResponse.json()
 			console.log("this is getMessages in ChatContainer")
@@ -103,11 +102,8 @@ class ChatContainer extends Component {
 	// go back to group list
 	goBack = () => {
 
-		this.props.switcher("chatContainer")
 		
 		// leave room
-		const endPoint = process.env.REACT_APP_API_URL
-		const socket = io.connect(endPoint)
 
 		const room = this.props.groupToChat.id
 
@@ -116,6 +112,8 @@ class ChatContainer extends Component {
 	        alert(error);
 	      }
     	})
+
+		this.props.switcher("chatContainer")
 	}
 
 
