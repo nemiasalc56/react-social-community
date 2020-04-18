@@ -282,8 +282,13 @@ class Community extends Component {
 
 	// allow user to update account
 	openUpdateAccount = () => {
-		console.log("user is trying to update account")
 		this.setState({updateUserAccountOpen: true})
+	}
+
+	// update method
+	updateAccount = (newUserInfo) => {
+		console.log("user is trying to submit changes")
+		console.log(newUserInfo);
 	}
 
 
@@ -380,6 +385,7 @@ class Community extends Component {
 					<UserUpdateForm 
 						user={this.props.user}
 						switcher={this.switcher}
+						updateAccount={this.updateAccount}
 					 />
 					: null
 				}

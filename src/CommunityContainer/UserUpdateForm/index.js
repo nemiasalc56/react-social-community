@@ -35,6 +35,12 @@ class UserUpdateForm extends Component {
 		this.props.switcher("updateUserAccountOpen")
 	}
 
+	handleSubmit = (e) => {
+		e.preventDefault()
+		this.props.updateAccount(this.state)
+		this.close()
+	}
+
 
 	render() {
 
@@ -45,10 +51,11 @@ class UserUpdateForm extends Component {
 				<Modal size="mini" open={this.state.open} onClose={this.close}>
 					<h3>UserUpdateForm</h3>
 					
-					<Form>
+					<Form onSubmit={this.handleSubmit}>
 						<Form.Input 
 							label="First name"
 							name="first_name"
+							type="text"
 							placeholder="First name"
 							value={this.state.first_name}
 							onChange={this.handleChange}
@@ -56,6 +63,7 @@ class UserUpdateForm extends Component {
 
 						<Form.Input 
 							label="Last name"
+							type="text"
 							placeholder="Last name"
 							name="last_name"
 							value={this.state.last_name}
@@ -65,6 +73,7 @@ class UserUpdateForm extends Component {
 						<Form.Input 
 							label="Password"
 							name="password"
+							type="password"
 							placeholder="Password"
 							value={this.state.password}
 							onChange={this.handleChange}
