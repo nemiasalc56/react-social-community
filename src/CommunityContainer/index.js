@@ -331,6 +331,7 @@ class Community extends Component {
 					    <Dropdown.Menu>
 							<Dropdown.Item text='Update Account' onClick={()=> this.openUpdateAccount()}/>
 							<Dropdown.Item text='Logout' onClick={()=> this.props.logout()} />
+							<Dropdown.Item text='Delete Account' onClick={()=> this.props.deleteAccount()} />
 					    </Dropdown.Menu>
 					</Dropdown>
 

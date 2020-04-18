@@ -113,6 +113,10 @@ class App extends Component {
     }
   }
 
+  deleteAccount = async () => {
+    console.log("user is trying to delete the account");
+  }
+
 
   render() {
 
@@ -122,6 +126,7 @@ class App extends Component {
         <CommunityContainer 
           user={this.state.user}
           logout={this.logout}
+          deleteAccount={this.deleteAccount}
           />
         :
         <LoginRegisterForm 
