@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Community.css'
 import io from 'socket.io-client'
+import { Dropdown } from 'semantic-ui-react'
 import NewGroupForm from './NewGroupForm'
 import GroupListContainer from './GroupListContainer'
 import GroupUpdateForm from './GroupUpdateForm'
@@ -8,7 +9,7 @@ import UserContainer from './UserContainer'
 import ChatContainer from './ChatContainer'
 import GroupMemberListContainer from './GroupMemberListContainer'
 import VideoContainer from './VideoContainer'
-import { Dropdown } from 'semantic-ui-react'
+import UserUpdateForm from './UserUpdateForm'
 
 
 
@@ -33,7 +34,8 @@ class Community extends Component {
 			groupToChatOpen: false,
 			messages: [],
 			members: [],
-			groupMemberListId: -1
+			groupMemberListId: -1,
+			updateUserAccountOpen: false
 		}
 	}
 
@@ -270,7 +272,7 @@ class Community extends Component {
 	}
 
 	getGroupMemberId = (id) => {
-		console.log("trying to see the members on group with id: ", id);
+		console.log("trying to see the members on group with id: ", id)
 
 		// set the id of the group to see the members
 		this.setState({groupMemberListId: id})
@@ -278,7 +280,10 @@ class Community extends Component {
 
 	// allow user to update account
 	updateAccount = () => {
-		console.log("user is trying to update account");
+		console.log("user is trying to update account")
+
+		this.setState({updateUserAccountOpen: true})
+
 	}
 
 
@@ -369,6 +374,11 @@ class Community extends Component {
 						switcher={this.switcher}
 					/>
 					:null
+				}
+
+				{this.state.updateUserAccountOpen?
+					<UserUpdateForm />
+					: null
 				}
 
 			</div>
