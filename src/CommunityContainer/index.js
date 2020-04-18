@@ -163,6 +163,8 @@ class Community extends Component {
 			this.getGroups()
 			this.setState({groupToChatOpen: false})
 
+		} else if(nameToClose === "updateUserAccountOpen") {
+			this.setState({updateUserAccountOpen: false})
 		}
 
 	}
@@ -279,11 +281,9 @@ class Community extends Component {
 	}
 
 	// allow user to update account
-	updateAccount = () => {
+	openUpdateAccount = () => {
 		console.log("user is trying to update account")
-
 		this.setState({updateUserAccountOpen: true})
-
 	}
 
 
@@ -297,7 +297,7 @@ class Community extends Component {
 
 					<Dropdown text={this.props.user.first_name}>
 					    <Dropdown.Menu>
-							<Dropdown.Item text='Update Account' onClick={()=> this.updateAccount()}/>
+							<Dropdown.Item text='Update Account' onClick={()=> this.openUpdateAccount()}/>
 					    </Dropdown.Menu>
 					</Dropdown>
 
@@ -377,7 +377,10 @@ class Community extends Component {
 				}
 
 				{this.state.updateUserAccountOpen?
-					<UserUpdateForm />
+					<UserUpdateForm 
+						user={this.props.user}
+						switcher={this.switcher}
+					 />
 					: null
 				}
 

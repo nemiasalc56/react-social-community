@@ -15,12 +15,24 @@ class UserUpdateForm extends Component {
 		}
 	}
 
+	componentDidMount() {
+		this.setState({
+			first_name: this.props.user.first_name,
+			last_name: this.props.user.last_name
+		})
+	}
+
 	
 	// allow user to type on the form
 	handleChange = (e) => {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
+	}
+
+	// close modal
+	close = () => {
+		this.props.switcher("updateUserAccountOpen")
 	}
 
 
@@ -30,7 +42,7 @@ class UserUpdateForm extends Component {
 			<div>
 				UserUpdateForm
 
-				<Modal size="mini" open={this.state.open} >
+				<Modal size="mini" open={this.state.open} onClose={this.close}>
 					<h3>UserUpdateForm</h3>
 					
 					<Form>
