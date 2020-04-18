@@ -1,6 +1,6 @@
 ## Social Community
 
-An app where the users can create group and chat with that group. At the same time the user will be able to search for videos to watch and click one to watch while chatting with others.
+An app where the users can create group and chat with that group to stay connect. At the same time the user will be able to search for videos to watch and click one to watch while chatting with others.
 
 
 ## User stories
@@ -116,6 +116,7 @@ class Player(Model):
 
 * Group in the chat will be able to watch the same video at the same time
 * Show notifications for new messages
+* Allow user to send pictures and videos
 
 
 ## Technology Used

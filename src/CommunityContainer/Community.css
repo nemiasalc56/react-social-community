@@ -23,14 +23,14 @@ header, h1 {
 }
 
 .chatContainer {
-	border: 5px solid black;
+	border: 1px solid #6A5ACD;
 	border-radius: 5px;
 	height: 70vh;
 	width: 25vw;
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
-	background-image: url('https://i.imgur.com/XpkMQg2.jpg');
+	background-color: #008080;
 }
 
 
@@ -48,7 +48,7 @@ header, h1 {
 }
 
 .video-container {
-	height: 91vh;
+	height: 90vh;
 	width: 65vw;
 	margin-left: 5vw;
 	margin-top: 2vw;

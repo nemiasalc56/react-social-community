@@ -1,11 +1,13 @@
 .message-container {
-	margin: 5px;
+	margin-top: 5px;
+	margin-left: auto;
+	margin-right: auto;
 	border: 1px solid black;
 	border-radius: 5px;
-	width: 23vw;
-	height: 50vh;
+	width: 24vw;
+	height: 44vh;
 	overflow: scroll;
-	/*display: flex;*/
+	background-color: #F0F8FF;
 }
 
 .new-message-form {
@@ -30,4 +32,8 @@
 	color: white;
 	background-color: grey;
 	margin: 15px;
+}
+
+#group-name {
+	color: white;
 }
