@@ -115,6 +115,34 @@ class App extends Component {
 
   deleteAccount = async () => {
     console.log("user is trying to delete the account");
+    // url to fetch
+    const url = process.env.REACT_APP_API_URL + '/api/v1/users/' + this.state.user.id
+
+    try {
+      const deleteAccountResponse = await fetch(url, {
+        credentials: 'include',
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      const deleteAccountJson = await deleteAccountResponse.json()
+      console.log(deleteAccountJson);
+
+      // if the status is 200 it was successful
+      if(deleteAccountJson.status === 200) {
+        this.setState({
+          loggedIn: false,
+          user: ''
+        })
+      }
+
+
+    } catch(err) {
+      console.error(err);
+    }
+
   }
 
 
