@@ -30,6 +30,10 @@ $ npm install react-youtube
 
 ## Wireframes
 
+![alt text](https://i.imgur.com/DSEr0uy.jpg?1)
+![alt text](https://i.imgur.com/4yn0nMU.jpg?1)
+![alt text](https://i.imgur.com/5C7ztlz.jpg?1)
+![alt text](https://i.imgur.com/BUwa4Iv.jpg?1)
 
 
 ## Models 
