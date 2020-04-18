@@ -17,3 +17,11 @@ header {
 	background-color: rgba(0, 0, 0, .5);
 	color: white;
 }
+
+#login-link {
+	color: blue;
+}
+
+#login-link:hover {
+	cursor: pointer;
+}

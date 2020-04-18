@@ -68,6 +68,7 @@ class ChatContainer extends Component {
 		
 		socket.on('message', (msg) => {
 			console.log("this is socket message >> ", msg);
+			this.getMessages()
 		})
 		
 		try {

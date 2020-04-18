@@ -140,12 +140,12 @@ class LoginRegisterForm extends Component {
 								
 							</Form.Field>
 							
-							<p id="login-link" onClick={this.switchForm}>
+							<small id="login-link" onClick={this.switchForm}>
 								{this.state.action === "login"
 									? "Create an account"
 									: "Already have an account?"
 								}
-							</p>
+							</small>
 						</Form>
 					</Segment>
 

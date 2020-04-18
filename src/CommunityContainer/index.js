@@ -8,6 +8,9 @@ import UserContainer from './UserContainer'
 import ChatContainer from './ChatContainer'
 import GroupMemberListContainer from './GroupMemberListContainer'
 import VideoContainer from './VideoContainer'
+import { Dropdown } from 'semantic-ui-react'
+
+
 
 
 const endPoint = process.env.REACT_APP_API_URL
@@ -59,7 +62,6 @@ class Community extends Component {
 			if(groupsJson.status === 200) {
 				this.setState({groups: groupsJson.data})
 			}
-
 
 		} catch(err) {
 			console.error(err);
@@ -274,6 +276,12 @@ class Community extends Component {
 		this.setState({groupMemberListId: id})
 	}
 
+	// allow user to update account
+	updateAccount = () => {
+		console.log("user is trying to update account");
+	}
+
+
 
 	render() {
 
@@ -281,7 +289,13 @@ class Community extends Component {
 			<div>
 				<header>
 					<h1>Social Community</h1>
-					<h3>{this.props.user.first_name}</h3>
+
+					<Dropdown text={this.props.user.first_name}>
+					    <Dropdown.Menu>
+							<Dropdown.Item text='Update Account' onClick={()=> this.updateAccount()}/>
+					    </Dropdown.Menu>
+					</Dropdown>
+
 				</header>
 
 				<div>
