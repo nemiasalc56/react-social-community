@@ -24,6 +24,8 @@ $ npm install react-youtube
 
 ## Tables
 
+![alt text](https://i.imgur.com/9ZTaafK.jpg?1)
+![alt text](https://i.imgur.com/cTBL3Y0.jpg?1)
 
 
 ## Wireframes
