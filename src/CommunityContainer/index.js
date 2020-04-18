@@ -35,12 +35,14 @@ class Community extends Component {
 			messages: [],
 			members: [],
 			groupMemberListId: -1,
-			updateUserAccountOpen: false
+			updateUserAccountOpen: false,
+			user: ''
 		}
 	}
 
 	componentDidMount() {
 		this.getGroups()
+		this.setState({user: this.props.user})
 	}
 
 
@@ -286,9 +288,35 @@ class Community extends Component {
 	}
 
 	// update method
-	updateAccount = (newUserInfo) => {
+	updateAccount = async (newUserInfo) => {
 		console.log("user is trying to submit changes")
 		console.log(newUserInfo);
+
+		// define url to make fetch call
+		const url = process.env.REACT_APP_API_URL + '/api/v1/users/' + this.state.user.id
+
+		try {
+			const updateAccountResponse = await fetch(url, {
+				credentials: 'include',
+				method: 'PUT',
+				body: JSON.stringify(newUserInfo),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			const updateAccountJson = await updateAccountResponse.json()
+			console.log("getting resolve the promise");
+			console.log(updateAccountJson);
+
+			// if the status is equal to 200 it was successful and we can update user in state
+			if(updateAccountJson.status === 200) {
+				this.setState({user: updateAccountJson.data})
+			}
+
+		} catch(err) {
+			console.error(err);
+		}
 	}
 
 
@@ -300,7 +328,7 @@ class Community extends Component {
 				<header>
 					<h1>Social Community</h1>
 
-					<Dropdown text={this.props.user.first_name}>
+					<Dropdown text={this.state.user.first_name}>
 					    <Dropdown.Menu>
 							<Dropdown.Item text='Update Account' onClick={()=> this.openUpdateAccount()}/>
 					    </Dropdown.Menu>
@@ -336,7 +364,7 @@ class Community extends Component {
 										updateGroup={this.updateGroup}
 										getGroupId={this.getGroupId}
 										getGroupToChat={this.getGroupToChat}
-										user={this.props.user}
+										user={this.state.user}
 										getGroupMemberId={this.getGroupMemberId}
 
 									/>
@@ -367,7 +395,7 @@ class Community extends Component {
 					<UserContainer 
 						switcher={this.switcher}
 						users={this.state.users}
-						loggedInUser={this.props.user}
+						loggedInUser={this.state.user}
 						groupToAddMemberId={this.state.groupToAddMemberId}
 						/>
 					: null
@@ -383,7 +411,7 @@ class Community extends Component {
 
 				{this.state.updateUserAccountOpen?
 					<UserUpdateForm 
-						user={this.props.user}
+						user={this.state.user}
 						switcher={this.switcher}
 						updateAccount={this.updateAccount}
 					 />
