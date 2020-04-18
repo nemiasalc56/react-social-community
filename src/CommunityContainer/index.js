@@ -319,6 +319,9 @@ class Community extends Component {
 		}
 	}
 
+	logout = () => {
+		console.log("user is trying to logout");
+	}
 
 
 	render() {
@@ -331,6 +334,7 @@ class Community extends Component {
 					<Dropdown text={this.state.user.first_name}>
 					    <Dropdown.Menu>
 							<Dropdown.Item text='Update Account' onClick={()=> this.openUpdateAccount()}/>
+							<Dropdown.Item text='Logout' onClick={()=> this.logout()} />
 					    </Dropdown.Menu>
 					</Dropdown>
 
