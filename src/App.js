@@ -82,6 +82,36 @@ class App extends Component {
 
   }
 
+  
+  logout = async () => {
+    // url to fetch
+    const url = process.env.REACT_APP_API_URL + '/api/v1/users/logout'
+
+    try {
+      const logoutResponse = await fetch(url, {
+        credentials: 'include',
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+
+      const logoutJson = await logoutResponse.json()
+      console.log("user is trying to logout");
+      console.log(logoutJson);
+
+      // if the status is 200 it was successful
+      if(logoutJson.status === 200) {
+        this.setState({
+          loggedIn: false,
+          user: ''
+        })
+      }
+
+    } catch(err) {
+      console.error(err);
+    }
+  }
 
 
   render() {
@@ -89,7 +119,10 @@ class App extends Component {
     return (
     <div className="App">
       {this.state.loggedIn?
-        <CommunityContainer user={this.state.user}/>
+        <CommunityContainer 
+          user={this.state.user}
+          logout={this.logout}
+          />
         :
         <LoginRegisterForm 
           register={this.register}
