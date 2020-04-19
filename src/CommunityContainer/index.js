@@ -253,8 +253,6 @@ class Community extends Component {
 	// group to chat with
 	getGroupToChat = (group) => {
 
-
-
 		this.setState({
 			groupToChat: group,
 			groupToChatId: group.id,
@@ -398,7 +396,7 @@ class Community extends Component {
 				}
 
 				{this.state.groupToAddMemberId !== -1?
-					<UserContainer 
+					<UserContainer
 						switcher={this.switcher}
 						users={this.state.users}
 						loggedInUser={this.state.user}

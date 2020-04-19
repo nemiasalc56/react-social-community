@@ -46,19 +46,30 @@ class GroupUpdateForm extends Component {
 		return(
 			<div>
 				<Modal size="mini" open={this.state.open} onClose={this.close}>
-					<h3>GroupUpdateForm</h3>
-					
-					<Form onSubmit={this.handleSubmit}>
-						<Form.Input 
-							label="Name"
-							placeholder="Name"
-							value={this.state.name}
-							onChange={this.handleChange}
-						/>
 
-						<Button type="submit">Update</Button>
+					<div className="update-group-form" >
+						<h3>Update Group</h3>
+						
+						<Form onSubmit={this.handleSubmit}>
+							<Form.Input 
+								label="Name"
+								placeholder="Name"
+								value={this.state.name}
+								onChange={this.handleChange}
+							/>
 
-					</Form>
+							<button
+								style={{
+									width: "100%",
+									backgroundColor: "green"
+									}}
+								className="ui button" 
+								type="submit">Update</button>
+
+						</Form>
+						
+
+					</div>
 
 				</Modal>
 

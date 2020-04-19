@@ -58,7 +58,7 @@ class UserContainer extends Component {
 		return(
 			<Modal size="mini" open={this.state.open}  onClose={this.close}>
 				<div className="user-container">
-					<h3>Add Member</h3>
+					<h3>Click user to add</h3>
 					<div>
 						<UserListContainer 
 							addMember={this.addMember}
