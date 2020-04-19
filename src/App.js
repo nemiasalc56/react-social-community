@@ -97,8 +97,6 @@ class App extends Component {
       })
 
       const logoutJson = await logoutResponse.json()
-      console.log("user is trying to logout");
-      console.log(logoutJson);
 
       // if the status is 200 it was successful
       if(logoutJson.status === 200) {
@@ -128,7 +126,6 @@ class App extends Component {
       })
 
       const deleteAccountJson = await deleteAccountResponse.json()
-      console.log(deleteAccountJson);
 
       // if the status is 200 it was successful
       if(deleteAccountJson.status === 200) {

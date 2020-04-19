@@ -13,7 +13,7 @@ function MessageListContainer(props) {
 			return(
 				<div className="message" key={message.id}>
 					<div className="owner">
-						<small>{message.owner_fk.first_name}</small>
+						<small>You</small>
 					</div>
 					<div className="message-mine">
 						<div key={message.id} className="my-message">

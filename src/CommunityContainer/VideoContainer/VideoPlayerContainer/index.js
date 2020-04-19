@@ -24,8 +24,6 @@ class VideoPlayerContainer extends Component {
   	}
 
 	render() {
-		console.log(this.props.videoToPlay);
-
 
 		return(
 			<div>

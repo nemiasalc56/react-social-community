@@ -5,10 +5,6 @@ import { Segment } from 'semantic-ui-react'
 
 function UserListContainer(props) {
 
-	console.log(props.users);
-
-	console.log("logged in user");
-	console.log(props.loggedInUser.id);
 	const users = props.users.map((user)=>{
 		// return all the users except the one logged in
 		if(user.id === props.loggedInUser.id){

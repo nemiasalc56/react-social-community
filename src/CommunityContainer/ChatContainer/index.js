@@ -26,16 +26,12 @@ class ChatContainer extends Component {
 
 	// send message method
 	sendMessage = async (message) => {
-		console.log("sendMessage method: user is trying to send message");
-		console.log(message);
 
 		// define the url
 		const url = process.env.REACT_APP_API_URL + '/api/v1/messages/' + this.props.groupToChat.id
 
 		socket.emit("message", message);
 
-
-		console.log(this.props.groupToChat);
 		try {
 			// fetch call that will send the message
 			const sendMessageResponse = await fetch(url, {
@@ -48,7 +44,6 @@ class ChatContainer extends Component {
 			})
 
 			const sendMessageJson = await sendMessageResponse.json()
-			console.log(sendMessageJson);
 
 			// if succesfully send message added in state
 			if(sendMessageJson.status === 200) {
@@ -68,7 +63,7 @@ class ChatContainer extends Component {
 		const url = process.env.REACT_APP_API_URL + '/api/v1/messages/' + this.props.groupToChat.id
 		
 		socket.on('message', (msg) => {
-			console.log("this is socket message >> ", msg);
+
 			this.getMessages()
 		})
 		
@@ -82,11 +77,9 @@ class ChatContainer extends Component {
 					'Content-Type': 'application/json'
 				}
 			})
-			console.log("getting messages");
 
 			const messagesJson = await messagesResponse.json()
-			console.log("this is getMessages in ChatContainer")
-			console.log(messagesJson)
+
 			if(messagesJson.status === 200) {
 				
 				this.setState({

@@ -34,12 +34,12 @@ class NewMessageForm extends Component {
 			<div>
 				<Form onSubmit={this.handleSubmit}>
 					
-					<Form.Input 
+					<Form.Input
 						type="text"
 						value={this.state.message}
 						onChange={this.handleChange}
 					/>
-					<button className="ui button" color="blue" style={{width: "100%"}} type="submit">Send</button>
+					<Button color="blue" style={{width: "100%"}} type="submit">Send</Button>
 				</Form>
 			</div>
 			)

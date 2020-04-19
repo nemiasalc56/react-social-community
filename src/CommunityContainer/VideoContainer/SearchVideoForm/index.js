@@ -20,8 +20,11 @@ class SearchVideoForm extends Component {
 	// submit search
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.getVideoIds(this.state.search)
-		this.clear()
+
+		if(this.state.search !== '') {
+			this.props.getVideoIds(this.state.search)
+			this.clear()			
+		}
 	}
 
 	// clear form after search

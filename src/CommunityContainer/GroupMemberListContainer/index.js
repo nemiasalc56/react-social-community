@@ -25,7 +25,6 @@ class GroupMemberListContainer extends Component {
 	}
 
 	getMembers = async () => {
-		console.log("trying to get members");
 		// define the url
 		const url = process.env.REACT_APP_API_URL + '/api/v1/members/' + this.props.groupMemberListId
 
@@ -40,8 +39,6 @@ class GroupMemberListContainer extends Component {
 			})
 
 			const membersJson = await membersResponse.json()
-
-			console.log(membersJson.data);
 
 			if(membersJson.status === 200) {
 				this.setState({
@@ -58,7 +55,6 @@ class GroupMemberListContainer extends Component {
 
 	// remove a member
 	removeMember = async (memberId) => {
-		console.log("user is trying to remove member with id: ", memberId);
 		// define the url
 		const url = process.env.REACT_APP_API_URL + '/api/v1/members/' + memberId
 
@@ -73,7 +69,6 @@ class GroupMemberListContainer extends Component {
 			})
 
 			const removeMemberJson = await removeMemberResponse.json()
-			console.log(removeMemberJson);
 
 			if(removeMemberJson.status === 200) {
 				const members = this.state.members

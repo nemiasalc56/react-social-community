@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button, Modal } from 'semantic-ui-react'
+import './UserUpdateForm.css'
 
 
 
@@ -46,10 +47,10 @@ class UserUpdateForm extends Component {
 
 		return(
 			<div>
-				UserUpdateForm
+				
 
 				<Modal size="mini" open={this.state.open} onClose={this.close}>
-					<h3>UserUpdateForm</h3>
+					<h2>Update Account</h2>
 					
 					<Form onSubmit={this.handleSubmit}>
 						<Form.Input 
@@ -79,7 +80,7 @@ class UserUpdateForm extends Component {
 							onChange={this.handleChange}
 						/>
 
-						<Button type="submit">Update Account</Button>
+						<Button style={{width: "100%"}} color="green" type="submit">Update</Button>
 
 					</Form>
 

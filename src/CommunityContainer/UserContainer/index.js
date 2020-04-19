@@ -20,8 +20,6 @@ class UserContainer extends Component {
 
 	// add a member to a group
 	addMember = async (member_fk) => {
-		console.log(" member with id: ", member_fk);
-		console.log("group id: ", this.props.groupToAddMemberId);
 
 		const member = {
 			group_fk: this.props.groupToAddMemberId,
@@ -43,7 +41,6 @@ class UserContainer extends Component {
 			})
 
 			const addMemberJson = await addMemberResponse.json()
-			console.log(addMemberJson);
 			this.close()
 
 		} catch(err) {

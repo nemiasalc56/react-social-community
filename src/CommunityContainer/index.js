@@ -191,7 +191,6 @@ class Community extends Component {
 			})
 
 			const deleteGroupJson = await deleteGroupResponse.json()
-			console.log(deleteGroupJson);
 
 			if(deleteGroupJson.status === 200) {
 				const groups = this.state.groups
@@ -269,12 +268,10 @@ class Community extends Component {
 	        alert(error);
 	      }
     	})
-		console.log("this is after the getGroupToChat");
 
 	}
 
 	getGroupMemberId = (id) => {
-		console.log("trying to see the members on group with id: ", id)
 
 		// set the id of the group to see the members
 		this.setState({groupMemberListId: id})
@@ -287,8 +284,6 @@ class Community extends Component {
 
 	// update method
 	updateAccount = async (newUserInfo) => {
-		console.log("user is trying to submit changes")
-		console.log(newUserInfo);
 
 		// define url to make fetch call
 		const url = process.env.REACT_APP_API_URL + '/api/v1/users/' + this.state.user.id
@@ -304,8 +299,6 @@ class Community extends Component {
 			})
 
 			const updateAccountJson = await updateAccountResponse.json()
-			console.log("getting resolve the promise");
-			console.log(updateAccountJson);
 
 			// if the status is equal to 200 it was successful and we can update user in state
 			if(updateAccountJson.status === 200) {
@@ -329,15 +322,21 @@ class Community extends Component {
 		return(
 			<div>
 				<header>
-					<h1>Social Community</h1>
+					<div className="title">
+						<h1>Social Community</h1>
+						
+					</div>
 
-					<Dropdown text={this.state.user.first_name}>
-					    <Dropdown.Menu>
-							<Dropdown.Item text='Update Account' onClick={()=> this.openUpdateAccount()}/>
-							<Dropdown.Item text='Logout' onClick={()=> this.props.logout()} />
-							<Dropdown.Item text='Delete Account' onClick={()=> this.props.deleteAccount()} />
-					    </Dropdown.Menu>
-					</Dropdown>
+					<div className="user-name">
+						<Dropdown text={this.state.user.first_name}>
+						    <Dropdown.Menu>
+								<Dropdown.Item text='Update Account' onClick={()=> this.openUpdateAccount()}/>
+								<Dropdown.Item text='Logout' onClick={()=> this.props.logout()} />
+								<Dropdown.Item text='Delete Account' onClick={()=> this.props.deleteAccount()} />
+						    </Dropdown.Menu>
+						</Dropdown>
+						
+					</div>
 
 				</header>
 
