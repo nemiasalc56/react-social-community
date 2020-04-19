@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import NewMessageForm from './NewMessageForm'
-import { Button } from 'semantic-ui-react'
 import './ChatContainer.css'
+import { Button } from 'semantic-ui-react'
 import MessageListContainer from './MessageListContainer'
 import io from 'socket.io-client'
 

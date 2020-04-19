@@ -10,7 +10,8 @@ class GroupMemberListContainer extends Component {
 
 		this.state = {
 			open: true,
-			members: []
+			members: [],
+			groupName: ''
 		}
 	}
 
@@ -40,10 +41,13 @@ class GroupMemberListContainer extends Component {
 
 			const membersJson = await membersResponse.json()
 
-			console.log(membersJson);
+			console.log(membersJson.data);
 
 			if(membersJson.status === 200) {
-				this.setState({members: membersJson.data})
+				this.setState({
+					members: membersJson.data,
+					groupName: membersJson.data[0].group_fk.name
+				})
 			}
 
 		} catch(err) {
@@ -97,7 +101,7 @@ class GroupMemberListContainer extends Component {
 		return(
 			<Modal size="mini" open={this.state.open} onClose={this.close}>
 				<div className="member-list">
-					<h3>GroupMemberListContainer</h3>
+					<h2>{this.state.groupName}</h2>
 					<MemberList 
 						removeMember={this.removeMember}
 						members={this.state.members}/>

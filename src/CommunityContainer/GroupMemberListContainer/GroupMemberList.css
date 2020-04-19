@@ -2,3 +2,8 @@
 	height: 400px;
 	overflow: auto;
 }
+
+.member-list h2 {
+	text-align: center;
+	border-bottom: 1px solid black;
+}

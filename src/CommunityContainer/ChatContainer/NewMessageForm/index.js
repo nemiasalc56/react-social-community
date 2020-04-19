@@ -39,7 +39,7 @@ class NewMessageForm extends Component {
 						value={this.state.message}
 						onChange={this.handleChange}
 					/>
-					<Button color="blue" style={{width: "100%"}} type="submit">Send</Button>
+					<button className="ui button" color="blue" style={{width: "100%"}} type="submit">Send</button>
 				</Form>
 			</div>
 			)

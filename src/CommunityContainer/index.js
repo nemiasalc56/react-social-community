@@ -320,6 +320,12 @@ class Community extends Component {
 	}
 
 
+	// Note: we are getting this error from Dropdown
+	// "findDOMNode is deprecated in StrictMode. 
+	// findDOMNode was passed an instance of RefFindNode which is inside StrictMode."
+	// apperently is something to do with the version on semantic ui
+	// so we will try to fix it later with when there is a new release.
+
 	render() {
 
 		return(
@@ -339,7 +345,6 @@ class Community extends Component {
 
 				<div>
 						
-
 					<div className="video-container">
 						<VideoContainer />
 					</div>

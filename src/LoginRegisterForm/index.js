@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Form, Segment } from 'semantic-ui-react'
 import './LoginRegister.css'
+import { Form, Segment } from 'semantic-ui-react'
 
 
 

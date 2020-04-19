@@ -21,6 +21,7 @@ function GroupListContainer(props) {
 								<Dropdown.Item text='Delete' onClick={()=> props.deleteGroup(group.id)} />
 						    </Dropdown.Menu>
 						  </Dropdown>
+						
 					</div>					
 					:null
 				}

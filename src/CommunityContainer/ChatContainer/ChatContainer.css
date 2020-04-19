@@ -17,23 +17,54 @@
 
 
 .my-message {
-	border: 1px solid blue;
 	background-color: blue;
 	border-radius: 10px;
 	text-align: right;
+	font-size: 15px;
 	color: white;
-	margin: 15px;
+	margin: 5px;
+	padding: 5px;
 }
 
 .other-message {
-	border: 1px solid gray;
 	border-radius: 10px;
 	text-align: left;
 	color: white;
 	background-color: grey;
-	margin: 15px;
+	font-size: 15px;
+	margin: 5px;
+	padding: 5px;
 }
 
 #group-name {
 	color: white;
+}
+
+.message {
+	box-shadow: 10px 1px 5px #aaaaaa;
+}
+
+.message-mine {
+	text-align: right;
+	margin-right: 15px;
+	margin-left: 15px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.message-for-others {
+	text-align: left;
+	margin-left: 15px;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.owner {
+	text-align: right;
+	margin-right: 15px;
+}
+
+.other {
+	text-align: left;
+	margin-left: 15px;
 }
