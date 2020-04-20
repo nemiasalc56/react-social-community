@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import NewMessageForm from './NewMessageForm'
 import './ChatContainer.css'
-import { Button } from 'semantic-ui-react'
 import MessageListContainer from './MessageListContainer'
 import io from 'socket.io-client'
 
@@ -115,7 +114,7 @@ class ChatContainer extends Component {
 	render() {
 		return(
 			<div>
-				<Button style={{width: "100%"}} onClick={this.goBack}>Go Back</Button>
+				<button className="ui button" style={{width: "100%"}} onClick={this.goBack}>Go Back</button>
 				<h2 id="group-name">{this.props.groupToChat.name}</h2>
 				<div className="message-container">
 					<MessageListContainer 

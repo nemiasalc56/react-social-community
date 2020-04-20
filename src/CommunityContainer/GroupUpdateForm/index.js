@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Modal } from 'semantic-ui-react'
+import { Form, Modal } from 'semantic-ui-react'
 
 
 

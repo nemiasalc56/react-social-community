@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './LoginRegister.css'
-import { Form, Segment } from 'semantic-ui-react'
+import { Button, Form, Segment } from 'semantic-ui-react'
 
 
 
@@ -134,7 +134,13 @@ class LoginRegisterForm extends Component {
 							</Form.Field>
 
 							<Form.Field>
-								<button className="ui button" type="submit">
+								<button 
+									className="ui button" 
+									type="submit"
+									style={{
+										backgroundColor: "springGreen"
+										}}
+									>
 									{this.state.action === "login"?"Sign In" : "Sign Up"}
 								</button>
 								

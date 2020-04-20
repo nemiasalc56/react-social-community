@@ -36,7 +36,8 @@ class Community extends Component {
 			members: [],
 			groupMemberListId: -1,
 			updateUserAccountOpen: false,
-			user: ''
+			user: '',
+			userSettingsOpen: false
 		}
 	}
 
@@ -334,11 +335,17 @@ class Community extends Component {
 								<Dropdown.Item text='Logout' onClick={()=> this.props.logout()} />
 								<Dropdown.Item text='Delete Account' onClick={()=> this.props.deleteAccount()} />
 						    </Dropdown.Menu>
-						</Dropdown>
-						
+						</Dropdown>			
+
 					</div>
 
 				</header>
+					{this.state.userSettingsOpen?
+						<div className="user-settings">
+							
+						</div>
+						:null
+					}
 
 				<div>
 						
