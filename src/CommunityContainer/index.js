@@ -14,8 +14,8 @@ import UserUpdateForm from './UserUpdateForm'
 
 
 
-const endPoint = process.env.REACT_APP_API_URL
-const socket = io.connect(endPoint)
+// const endPoint = process.env.REACT_APP_API_URL
+// const socket = io.connect(endPoint)
 
 
 
@@ -37,7 +37,8 @@ class Community extends Component {
 			groupMemberListId: -1,
 			updateUserAccountOpen: false,
 			user: '',
-			userSettingsOpen: false
+			userSettingsOpen: false,
+			socket: io.connect(process.env.REACT_APP_API_URL)
 		}
 	}
 
@@ -264,7 +265,7 @@ class Community extends Component {
 
 
 		// join a room
-		socket.emit('join', { room }, (error) => {
+		this.state.socket.emit('join', { room }, (error) => {
 	      if(error) {
 	        alert(error);
 	      }

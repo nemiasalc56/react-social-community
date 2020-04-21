@@ -5,8 +5,8 @@ import MessageListContainer from './MessageListContainer'
 import io from 'socket.io-client'
 
 // declaring the var here don't the issue when loading socketio
-const endPoint = process.env.REACT_APP_API_URL
-const socket = io.connect(endPoint)
+// const endPoint = process.env.REACT_APP_API_URL
+// const socket = io.connect(endPoint)
 
 
 
@@ -15,7 +15,8 @@ class ChatContainer extends Component {
 		super(props)
 
 		this.state = {
-			messages: []
+			messages: [],
+			socket: io.connect(process.env.REACT_APP_API_URL)
 		}
 	}
 
@@ -29,7 +30,7 @@ class ChatContainer extends Component {
 		// define the url
 		const url = process.env.REACT_APP_API_URL + '/api/v1/messages/' + this.props.groupToChat.id
 
-		socket.emit("message", message);
+		this.state.socket.emit("message", message);
 
 		try {
 			// fetch call that will send the message
@@ -61,7 +62,7 @@ class ChatContainer extends Component {
 		// define the url to get messages
 		const url = process.env.REACT_APP_API_URL + '/api/v1/messages/' + this.props.groupToChat.id
 		
-		socket.on('message', (msg) => {
+		this.state.socket.on('message', (msg) => {
 
 			this.getMessages()
 		})
@@ -101,7 +102,7 @@ class ChatContainer extends Component {
 
 		const room = this.props.groupToChat.id
 
-		socket.emit('leave', { room }, (error) => {
+		this.state.socket.emit('leave', { room }, (error) => {
 	      if(error) {
 	        alert(error);
 	      }
