@@ -42,7 +42,7 @@ class Community extends Component {
 	}
 
 	componentDidMount() {
-		const socket = io.connect(`${endPoint}`)
+		const socket = io.connect(`8000${endPoint}`)
 
 		this.getGroups()
 		this.setState({
