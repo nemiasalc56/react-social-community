@@ -14,8 +14,7 @@ import UserUpdateForm from './UserUpdateForm'
 
 
 
-// const endPoint = process.env.REACT_APP_API_URL
-// const socket = io.connect(endPoint)
+const endPoint = process.env.REACT_APP_API_URL
 
 
 
@@ -38,13 +37,19 @@ class Community extends Component {
 			updateUserAccountOpen: false,
 			user: '',
 			userSettingsOpen: false,
-			socket: io.connect(process.env.REACT_APP_API_URL)
+			socket: null
 		}
 	}
 
 	componentDidMount() {
+		const socket = io.connect(endPoint)
+
 		this.getGroups()
-		this.setState({user: this.props.user})
+		this.setState({
+			user: this.props.user,
+			socket: socket
+		})
+
 	}
 
 
@@ -356,7 +361,8 @@ class Community extends Component {
 
 					<div className="chatContainer">
 						{this.state.groupToChatOpen?
-						<ChatContainer 
+						<ChatContainer
+							socket={this.state.socket} 
 							groupToChat={this.state.groupToChat}
 							user={this.props.user}
 							switcher={this.switcher}
