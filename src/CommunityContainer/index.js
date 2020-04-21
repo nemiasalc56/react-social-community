@@ -14,7 +14,7 @@ import UserUpdateForm from './UserUpdateForm'
 
 
 
-const endPoint = '/'
+const endPoint = process.env.REACT_APP_API_URL
 
 
 
@@ -42,7 +42,7 @@ class Community extends Component {
 	}
 
 	componentDidMount() {
-		const socket = io.connect(endPoint)
+		const socket = io.connect(`${endPoint}`)
 
 		this.getGroups()
 		this.setState({
