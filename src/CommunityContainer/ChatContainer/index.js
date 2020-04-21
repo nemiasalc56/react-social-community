@@ -2,11 +2,6 @@ import React, { Component } from 'react'
 import NewMessageForm from './NewMessageForm'
 import './ChatContainer.css'
 import MessageListContainer from './MessageListContainer'
-import io from 'socket.io-client'
-
-// declaring the var here don't the issue when loading socketio
-// const endPoint = process.env.REACT_APP_API_URL
-// const socket = io.connect(`${endPoint}`)
 
 
 
