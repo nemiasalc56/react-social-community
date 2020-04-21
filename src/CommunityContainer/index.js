@@ -15,7 +15,7 @@ import UserUpdateForm from './UserUpdateForm'
 
 
 const endPoint = process.env.REACT_APP_API_URL
-const socket = io(`${endPoint}`)
+const socket = io.connect(endPoint)
 
 
 
