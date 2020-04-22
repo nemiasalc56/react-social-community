@@ -134,15 +134,12 @@ class LoginRegisterForm extends Component {
 							</Form.Field>
 
 							<Form.Field>
-								<button 
-									className="ui button" 
+								<Button  
 									type="submit"
-									style={{
-										backgroundColor: "springGreen"
-										}}
+									color="green"
 									>
 									{this.state.action === "login"?"Sign In" : "Sign Up"}
-								</button>
+								</Button>
 								
 							</Form.Field>
 							

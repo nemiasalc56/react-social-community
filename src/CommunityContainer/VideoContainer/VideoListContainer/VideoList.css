@@ -1,13 +1,14 @@
 
-
-.video-image {
-	float: left
+.video-list {
+	display: flex;	
 }
 
 .video-image:hover {
 	cursor: pointer;
 }
 
-
+img {
+	height: 15vh;
+}
 
 

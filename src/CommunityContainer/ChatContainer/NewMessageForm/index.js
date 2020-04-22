@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 
 
 class NewMessageForm extends Component {
@@ -39,14 +39,12 @@ class NewMessageForm extends Component {
 						value={this.state.message}
 						onChange={this.handleChange}
 					/>
-					<button 
-						className="ui button" 
+					<Button  
 						color="blue" 
 						style={{
 							width: "100%",
-							backgroundColor: "dodgerBlue"
-							}} 
-						type="submit">Send</button>
+							border: "1px solid white"}} 
+						type="submit">Send</Button>
 				</Form>
 			</div>
 			)

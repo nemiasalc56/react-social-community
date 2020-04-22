@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 import './NewGroupForm.css'
 
 
@@ -44,14 +44,12 @@ class NewGroupForm extends Component {
 						onChange={this.handleChange}
 						name="name" />
 
-					<button 
-						className="ui button" 
+					<Button 
 						color="green" 
 						style={{
-							width: "100%",
-							backgroundColor: "springGreen"
+							width: "100%"
 							}}
-						>Add Group</button>
+						>Add Group</Button>
 				</Form>
 			</div>
 			)

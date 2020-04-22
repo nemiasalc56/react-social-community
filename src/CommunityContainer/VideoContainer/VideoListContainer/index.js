@@ -18,12 +18,12 @@ function VideoListContainer(props) {
 				<div className="video-list">
 					
 					<div className="video-image">
-						<Image 
+						<img 
 							src={video.snippet.thumbnails.default.url}
 							onClick={()=> props.getVideoToPlay(video)}
 						/>
 					</div>
-					<h2 className="title">{video.snippet.title}</h2>
+					<h4 className="title">{video.snippet.title}</h4>
 					
 				</div>
 
