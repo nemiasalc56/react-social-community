@@ -14,6 +14,7 @@ An app where the users can create group and chat with that group to stay connect
 
 ![alt text](https://i.imgur.com/8oCCeJR.png)
 
+
 ## Installation
 
 ```
