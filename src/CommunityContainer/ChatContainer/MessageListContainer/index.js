@@ -25,7 +25,6 @@ function MessageListContainer(props) {
 					<div className="owner">
 						<small>{message.created_at}</small>
 					</div>
-					
 				</div>
 				)
 
@@ -45,7 +44,6 @@ function MessageListContainer(props) {
 					<div className="other">
 						<small>{message.created_at}</small>
 					</div>
-					
 				</div>
 				)
 		}
@@ -54,6 +52,7 @@ function MessageListContainer(props) {
 	return(
 		<div className="message-list">
 			{messages}
+			<a name="message"></a>
 		</div>
 		)
 }
