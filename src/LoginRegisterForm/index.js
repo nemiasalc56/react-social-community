@@ -87,16 +87,18 @@ class LoginRegisterForm extends Component {
 								:
 								<div>
 									<Form.Input 
-									label="First name"
-									style={{width: "400px"}}
-									type="text"
-									name="first_name"
-									value={this.state.first_name}
-									onChange={this.handleChange}
-									placeholder="First name"
+										required={true}
+										label="First name"
+										style={{width: "400px"}}
+										type="text"
+										name="first_name"
+										value={this.state.first_name}
+										onChange={this.handleChange}
+										placeholder="First name"
 									/>
 
 									<Form.Input
+										required={true}
 										label="Last name"
 										style={{width: "400px"}}
 										type="text"
@@ -113,6 +115,7 @@ class LoginRegisterForm extends Component {
 
 							<Form.Input
 								label="Email"
+								required={true}
 								style={{width: "400px"}}
 								type="text"
 								name="email"
@@ -123,6 +126,7 @@ class LoginRegisterForm extends Component {
 
 							<Form.Input
 								label="Password"
+								required={true}
 								style={{width: "400px"}}
 								type="password"
 								name="password"
