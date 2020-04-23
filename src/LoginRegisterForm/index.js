@@ -137,7 +137,7 @@ class LoginRegisterForm extends Component {
 								placeholder="Password"
 							/>
 
-							<small>{this.props.message}</small>
+							<small id="warning-message">{this.props.message}</small>
 
 							</Form.Field>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Image } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 import './VideoList.css'
 
 
@@ -18,10 +18,13 @@ function VideoListContainer(props) {
 				<div className="video-list">
 					
 					<div className="video-image">
-						<img 
-							src={video.snippet.thumbnails.default.url}
-							onClick={()=> props.getVideoToPlay(video)}
-						/>
+						<a href="#play">
+							<img 
+								src={video.snippet.thumbnails.default.url}
+								onClick={()=> props.getVideoToPlay(video)}
+							/>
+							
+						</a>
 					</div>
 					<h4 className="title">{video.snippet.title}</h4>
 					

@@ -26,7 +26,7 @@ header {
 	cursor: pointer;
 }
 
-small {
+#warning-message {
 	color: red;
-	
+
 }

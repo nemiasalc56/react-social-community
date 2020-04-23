@@ -27,6 +27,7 @@ class VideoPlayerContainer extends Component {
 
 		return(
 			<div>
+				<a name="play"></a>
 				<h1>{this.props.videoToPlay.snippet.title}</h1>
 				<YouTube 
 					videoId={this.props.videoToPlay.id}
