@@ -23,6 +23,7 @@ class VideoContainer extends Component {
 	}
 
 
+
 	// method that will get the videos to play
 	getVideoIds = async (name) => {
 		// define our url

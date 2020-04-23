@@ -65,9 +65,9 @@ class LoginRegisterForm extends Component {
 	render() {
 		return(
 			<div>
-				<header>
+				<div id="header">
 					<h1>Social Community</h1>
-				</header>
+				</div>
 
 				<div className="login-register-form">
 					<Segment>

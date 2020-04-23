@@ -13,10 +13,13 @@
 	font-size: 30px;
 }
 
-header {
+#header {
 	background-color: rgba(0, 0, 0, .5);
 	color: white;
+	text-align: center;
 }
+
+
 
 #login-link {
 	color: blue;
