@@ -21,8 +21,13 @@ class NewGroupForm extends Component {
 	// handle the submits
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.newGroup(this.state)
-		this.clearForm()
+
+		// if the user doesn't type anything we don't want to create a group
+		if(this.state.name !== '') {
+			this.props.newGroup(this.state)
+			this.clearForm()
+			
+		}
 	}
 
 	// clear the form after creating a group
