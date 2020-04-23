@@ -12,6 +12,7 @@ An app where the users can create group and chat with that group to stay connect
 * Owner of the group can add members to a group
 * Owner of the group can remove members from a group
 
+![alt text](https://i.imgur.com/8oCCeJR.png)
 
 ## Installation
 
