@@ -370,8 +370,8 @@ class Community extends Component {
 						}
 
 						{this.state.groupToChatOpen === false?
-							<div className="groupContainers">
-
+							<div className="group-container">
+								<h1 id="groups-title">Groups</h1>
 								<div className="group-list">
 									<GroupListContainer
 										groupToUpdate={this.groupToUpdate}

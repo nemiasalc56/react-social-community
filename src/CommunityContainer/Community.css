@@ -17,14 +17,8 @@ header h1 {
 	margin: 5px;
 }
 
-.groupContainer {
-	border: 5px solid black;
-	border-radius: 5px;
-	height: 70vh;
-	width: 15vw;
-	position: absolute;
-	bottom: 10px;
-	margin-left: 10px;
+#groups-title {
+	color: white;
 }
 
 .chatContainer {
@@ -33,7 +27,7 @@ header h1 {
 	height: 70vh;
 	width: 25vw;
 	position: absolute;
-	bottom: 10px;
+	bottom: 45px;
 	right: 10px;
 	background-color: #008080;
 }
@@ -53,10 +47,10 @@ header h1 {
 }
 
 .video-container {
-	height: 91.5vh;
+	height: 94.5vh;
 	width: 65vw;
 	margin-left: 5vw;
-	margin-top: 1vw;
+	margin-top: 0.5vw;
 	overflow: auto;
 }
 
