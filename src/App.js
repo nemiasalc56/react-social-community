@@ -12,7 +12,8 @@ class App extends Component {
 
     this.state = {
       loggedIn: false,
-      user: ''
+      user: '',
+      message: ''
     }
   }
 
@@ -39,8 +40,11 @@ class App extends Component {
       if(registerJson.status === 200) {
         this.setState({
           loggedIn: true,
-          user: registerJson.data
+          user: registerJson.data,
+          message: ''
         })
+      } else {
+        this.setState({message: 'Username already exists'})
       }
 
     } catch(err) {
@@ -72,8 +76,11 @@ class App extends Component {
       if(loginJson.status === 200) {
         this.setState({
           loggedIn: true,
-          user: loginJson.data
+          user: loginJson.data,
+          message: ''
         })
+      } else {
+        this.setState({message: 'Username or password is incorrect'})
       }
 
     } catch(err) {
@@ -142,6 +149,10 @@ class App extends Component {
 
   }
 
+  // clear message on state
+  clearMessage = () => {
+    this.setState({message: ''})
+  }
 
   render() {
 
@@ -155,6 +166,8 @@ class App extends Component {
           />
         :
         <LoginRegisterForm 
+          clearMessage={this.clearMessage}
+          message={this.state.message}
           register={this.register}
           login={this.login}
           loggedIn={this.state.loggedIn}

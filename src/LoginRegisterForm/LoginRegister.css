@@ -25,3 +25,7 @@ header {
 #login-link:hover {
 	cursor: pointer;
 }
+
+small {
+	color: red;
+}

@@ -56,6 +56,8 @@ class LoginRegisterForm extends Component {
 			email: '',
 			password: ''
 		})
+
+		this.props.clearMessage()
 	}
 
 
@@ -134,6 +136,8 @@ class LoginRegisterForm extends Component {
 								onChange={this.handleChange}
 								placeholder="Password"
 							/>
+
+							<small>{this.props.message}</small>
 
 							</Form.Field>
 
