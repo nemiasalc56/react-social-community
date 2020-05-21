@@ -45,8 +45,8 @@ class VideoContainer extends Component {
 			let videoIds = ""
 
 			for(let i = 0; i < videosJson.items.length; i++) {
-				// adding "%2C+" works with all the ids
-				videoIds +=  "%2C+" + `${videosJson.items[i].id.videoId}`
+				// adding "%2C" works with all the ids
+				videoIds +=  "%2C" + `${videosJson.items[i].id.videoId}`
 			}
 
 			this.getVideosInfo(videoIds)
@@ -60,7 +60,6 @@ class VideoContainer extends Component {
 	getVideosInfo = async (videoIds) => {
 		// define our youtube url
 		const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoIds}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
-
 		try {
 
 			const videosInfoResponse = await fetch(url, {
@@ -71,7 +70,6 @@ class VideoContainer extends Component {
 			})
 
 			const videosInfoJson = await videosInfoResponse.json()
-
 			
 			this.setState({
 				videos: videosInfoJson.items,
@@ -97,25 +95,25 @@ class VideoContainer extends Component {
 	streamVideo = async () => {
 		console.log("user is trying to stream");
 
-		const url = `https://www.googleapis.com/youtube/v3/liveStreams?key=` + process.env.REACT_APP_YOUTUBE_API_KEY
-
-		try {
-
-			const streamResponse = await fetch(url, {
-				method: 'POST',
-				data: JSON.stringify(this.state.videoToPlay),
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			})
-
-			const streamJson = await streamResponse.json()
-
-			console.log(streamJson); 
-
-		} catch(err) {
-			console.error(err);
-		}
+// 		const url = `https://www.googleapis.com/youtube/v3/liveStreams?key=` + process.env.REACT_APP_YOUTUBE_API_KEY
+// 
+// 		try {
+// 
+// 			const streamResponse = await fetch(url, {
+// 				method: 'POST',
+// 				data: JSON.stringify(this.state.videoToPlay),
+// 				headers: {
+// 					'Content-Type': 'application/json'
+// 				}
+// 			})
+// 
+// 			const streamJson = await streamResponse.json()
+// 
+// 			console.log(streamJson); 
+// 
+// 		} catch(err) {
+// 			console.error(err);
+// 		}
 	}
 
 
