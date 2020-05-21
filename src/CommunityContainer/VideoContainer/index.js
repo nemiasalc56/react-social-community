@@ -27,7 +27,7 @@ class VideoContainer extends Component {
 	// method that will get the videos to play
 	getVideoIds = async (name) => {
 		// define our url
-		const url = `https://www.googleapis.com/youtube/v3/search?part=id&q=${name}&type=video&maxResults=20&key=` + process.env.REACT_APP_YOUTUBE_API_KEY
+		const url = `https://www.googleapis.com/youtube/v3/search?part=id&q=${name}&type=video&maxResults=15&key=` + process.env.REACT_APP_YOUTUBE_API_KEY
 
 		try {
 
@@ -93,13 +93,38 @@ class VideoContainer extends Component {
 		})
 	}
 
+	// streaming video
+	streamVideo = async () => {
+		console.log("user is trying to stream");
+
+		const url = `https://www.googleapis.com/youtube/v3/liveStreams?key=` + process.env.REACT_APP_YOUTUBE_API_KEY
+
+		try {
+
+			const streamResponse = await fetch(url, {
+				method: 'POST',
+				data: JSON.stringify(this.state.videoToPlay),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+
+			const streamJson = await streamResponse.json()
+
+			console.log(streamJson); 
+
+		} catch(err) {
+			console.error(err);
+		}
+	}
+
 
 	render() {
 
 		return(
 			<div>
 				<SearchVideoForm getVideoIds={this.getVideoIds}/>
-
+				<button onClick={this.streamVideo}>Stream</button>
 				{this.state.videoPlayerOpen?
 					<VideoPlayerContainer 
 						videoToPlay={this.state.videoToPlay}

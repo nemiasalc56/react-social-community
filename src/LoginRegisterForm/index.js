@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './LoginRegister.css'
+import 'semantic-ui-css/semantic.min.css'
 import { Button, Form, Segment } from 'semantic-ui-react'
 
 

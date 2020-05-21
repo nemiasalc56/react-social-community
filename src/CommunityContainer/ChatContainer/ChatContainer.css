@@ -68,3 +68,7 @@
 	text-align: left;
 	margin-left: 15px;
 }
+
+.message-list {
+	flex-direction: row-reverse;
+}

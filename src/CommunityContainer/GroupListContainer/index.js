@@ -28,8 +28,7 @@ function GroupListContainer(props) {
 				<h3>
 					{group.name}
 				</h3>
-			</Segment>
-					
+			</Segment>			
 		)
 	})
 

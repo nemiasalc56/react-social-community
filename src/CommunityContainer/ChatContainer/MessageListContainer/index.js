@@ -52,7 +52,6 @@ function MessageListContainer(props) {
 	return(
 		<div className="message-list">
 			{messages}
-			<a name="message"></a>
 		</div>
 		)
 }

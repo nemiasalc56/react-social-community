@@ -46,15 +46,13 @@ class NewMessageForm extends Component {
 						onChange={this.handleChange}
 						placeholder="Text Message"
 					/>
-					<a href="#message">
-						<Button  
-							onClick="#message"
+					
+						<Button
 							color="blue" 
 							style={{
 								width: "100%",
 								border: "1px solid white"}} 
 							type="submit">Send</Button>
-					</a>
 				</Form>
 			</div>
 			)
